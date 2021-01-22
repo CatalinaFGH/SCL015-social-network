@@ -1,0 +1,26 @@
+.root{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header{
+    display:flex;
+    justify-content: space-between;
+}
+
+.wall{
+    display: none;
+}
+
+.passwordInput{
+    background-image: url(img/eye-closed.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.google-btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
