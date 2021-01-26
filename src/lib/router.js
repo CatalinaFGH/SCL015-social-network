@@ -1,5 +1,4 @@
 import { login } from "./view/templateLogin.js";
-import { wall } from "./view/templateWall.js";
 
 export const changeRouter = (hash) => {
     if (hash === '#/menu') {
@@ -15,12 +14,11 @@ export const changeRouter = (hash) => {
 
 export const showTemplate = (hash) => {
     const containerRoot = document.getElementById('root');
-    containerRoot.innerHTML='';
-    if (hash === "#/wall") {
-        containerRoot.innerHTML = wall();
+    containerRoot.appendChild(login());
+     if (hash === '#/' || hash === '' || hash === '#')  {
+        containerRoot.appendChild(login());
     }
     else { 
-        containerRoot.innerHTML= login();
+        containerRoot.innerHTML = "pagina no existe";
     }
 }
- 

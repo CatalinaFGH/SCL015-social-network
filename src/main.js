@@ -6,7 +6,7 @@ import { changeRouter } from './lib/router.js';
 
 
 // función login de página de bienvenida
-document.getElementById('root').innerHTML= login();
+document.getElementById('root').appendChild(login());
 
 
 const init = () => {

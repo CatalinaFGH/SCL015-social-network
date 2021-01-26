@@ -1,6 +1,9 @@
+import { loginWithGoogle } from "../index.js";
+
 export const login = () => {
-    const viewLogin =
-`
+    const divLogin = document.createElement("div");   
+    divLogin.setAttribute("CLASS","root");
+    const viewLogin = `
 <img src="img/logo.png" alt="Beauty Tips Logo">
 <h3>Inicia Sesión</h3>
 <label for="">Usuario</label><br>
@@ -10,12 +13,21 @@ export const login = () => {
 <br>
 <a id="logInBtn" href="#/wall">Inicia Sesión</a>
 <br>
-<a id = "googleBtn" class="google-btn" href="#/wall"> <img src="img/logo-gmail.svg" alt="Google">Inicia Sesión con Google</a> <br><br>
+<button id="googleBtn" class="google-btn "href="#/wall"> <img src="img/logo-gmail.svg" alt="Google">Inicia Sesión con Google</button> <br><br>
 
 <a href="">¿Olvidaste tu contraseña?</a>
 
 <p>¿Eres nueva? <a href=""><strong>Regístrate</strong></a></p>
-`
-return viewLogin;
-};
+`;
+
+divLogin.innerHTML= viewLogin;
+
+const googleLoginBtn= divLogin.querySelector("#googleBtn"); 
+googleLoginBtn.addEventListener("click", () => {
+    console.log("pruebirijilla");
+loginWithGoogle();
+})
+
+return divLogin;
+}
 
