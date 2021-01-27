@@ -35,8 +35,15 @@ loginWithEmail.addEventListener("click",() =>{
     let password = document.getElementById("loginPassword").value;
     firebase.auth().signInWithEmailAndPassword(email, password)
   .then((user) => {
-      console.log("usuario entro")
+    var user = firebase.auth().currentUser;
+    const userVerified = user.emailVerified;
+    if(userVerified === true) { 
+      console.log("usuario entro");
       location.assign("#/wall");
+      console.log(user);}
+    else if (userVerified === false) {
+      alert("Por favor verifica tu correo antes de ingresar");
+    }
     // Signed in
     // ...
   })
@@ -46,6 +53,8 @@ loginWithEmail.addEventListener("click",() =>{
       location.assign("#/");
     var errorCode = error.code;
     var errorMessage = error.message;
+    console.log(errorCode);
+    console.log(errorMessage);
   });}
 )
 

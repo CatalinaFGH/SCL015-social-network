@@ -18,7 +18,7 @@ export const changeRouter = (hash) => {
 export const showTemplate = (hash) => {
     const containerRoot = document.getElementById('root');
     containerRoot.innerHTML="";
-     if (hash === '#/' || hash === '' || hash === '#')  {
+     if (hash === '#/' || hash === '' || hash === '#'|| hash === '/') {
         containerRoot.appendChild(login());
     }
     else if (hash === '#/register'){
