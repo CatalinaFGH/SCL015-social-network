@@ -1,15 +1,14 @@
-// aqui exportaras las funciones que necesites
+// aqui pondremos las preguntas existenciales serias
 
-// export const myFunction = () => {
-//   // aqui tu codigo
-//   console.log('Hola mundo!');
-// };
+// modularización: ¿es obligatoria?, ¿en qué momento la podríamos hacer?
+// ¿por qué no funciona el registro? no muestra los console log. Si registra usuarios. Exige contraseña de + de 5 caracteres y un mail real.
+// ¿Qué pasa si el usuario entra con la contraseña mala? ¿cómo lo hacemos?
+// ¿cómo redireccionar al muro si el usuario ingresa correctamente los datos?
+// siguentes pasos a seguir :s
 
-// ¿Podríamos unir todas las vistas en un solo js (como un objeto) y ahorrarnos los demás js's? Pregunta seria OwO
-// ¿Es posible?, ¿es una mala practica?
-// ¿Si no se puede, ¿podemos borrar el index.js? (no le vemos la funcionalidad)
-// ¿Podríamos agregar ahora el assign()?
 
+
+//Función de Firebase para iniciar sesión con Google
 export const loginWithGoogle = () =>{
 
  const provider = new firebase.auth.GoogleAuthProvider();
@@ -35,3 +34,32 @@ export const loginWithGoogle = () =>{
     var credential = error.credential;
     console.log("error",errorMessage);
   });}
+
+  // Aqui debemos agregar la autentificación con correo y contraseña y el registro
+// Usuarios Nuevos
+
+
+
+// export const registerWithEmail = (email,password) =>{
+//   firebase.auth().createUserWithEmailAndPassword(email, password)
+//   .then((user) => {
+//     // Signed in
+//     // ...
+//   })
+//   .catch((error) => {
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//     // ..
+//   });}
+
+//   // Usuarios Existentes
+//   export const loginWithEmail = () => {
+//   firebase.auth().signInWithEmailAndPassword(email, password)
+//   .then((user) => {
+//     // Signed in
+//     // ...
+//   })
+//   .catch((error) => {
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//   });}

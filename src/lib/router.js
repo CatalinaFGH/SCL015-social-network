@@ -1,7 +1,10 @@
 import { login } from "./view/templateLogin.js";
+import { register } from "./view/templateRegister.js";
+import { wall } from "./view/templateWall.js";
+import { menu } from "./view/templateNavBar.js";
 
 export const changeRouter = (hash) => {
-    if (hash === '#/menu') {
+    if (hash === '#/register') {
         return showTemplate(hash);
     }
     else if (hash === '#/wall') {
@@ -14,11 +17,17 @@ export const changeRouter = (hash) => {
 
 export const showTemplate = (hash) => {
     const containerRoot = document.getElementById('root');
-    containerRoot.appendChild(login());
+    containerRoot.innerHTML="";
      if (hash === '#/' || hash === '' || hash === '#')  {
         containerRoot.appendChild(login());
     }
-    else { 
-        containerRoot.innerHTML = "pagina no existe";
+    else if (hash === '#/register'){
+        containerRoot.appendChild(register());
     }
+    else if (hash === "#/wall"){
+        containerRoot.appendChild(wall());
+    }
+    // else { 
+    //     containerRoot.innerHTML = "pagina no existe";
+    // }
 }
