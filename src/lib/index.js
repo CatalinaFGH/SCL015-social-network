@@ -1,10 +1,8 @@
 // aqui pondremos las preguntas existenciales serias
 
-// modularización: ¿es obligatoria?, ¿en qué momento la podríamos hacer?
-// ¿por qué no funciona el registro? no muestra los console log. Si registra usuarios. Exige contraseña de + de 5 caracteres y un mail real.
-// ¿Qué pasa si el usuario entra con la contraseña mala? ¿cómo lo hacemos?
-// ¿cómo redireccionar al muro si el usuario ingresa correctamente los datos?
-// siguentes pasos a seguir :s
+//continuar con Google, para que al ingresar correctamente se muestre el muro 
+//si fallo el login con google aparezca mensaje de error
+//preparar demo
 
 
 

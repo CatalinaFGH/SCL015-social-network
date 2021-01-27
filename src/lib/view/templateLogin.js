@@ -15,7 +15,7 @@ export const login = () => {
 <br>
 <button id="googleBtn" class="google-btn "href="#/wall"> <img src="img/logo-gmail.svg" alt="Google">Inicia Sesión con Google</button> <br><br>
 
-<a href="">¿Olvidaste tu contraseña?</a>
+<a href="#/resetPassword">¿Olvidaste tu contraseña?</a>
 
 <p>¿Eres nueva? <a href="#/register"><strong>Regístrate</strong></a></p>
 `;
