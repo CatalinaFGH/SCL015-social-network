@@ -21,6 +21,8 @@ export const loginWithGoogle = () =>{
     var token = credential.accessToken;
     // The signed-in user info.
     var user = result.user;
+    console.log("usuario entro");
+    location.assign("#/wall");
     console.log("user",user);
   }).catch((error) => {
     // Handle Errors here.
@@ -30,7 +32,9 @@ export const loginWithGoogle = () =>{
     var email = error.email;
     // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
-    console.log("error",errorMessage);
+    console.log("error",errorMessage)
+    console.log("usuario no entro");
+    alert("Hubo un error en la validación de datos");;
   });}
 
   // Aqui debemos agregar la autentificación con correo y contraseña y el registro
