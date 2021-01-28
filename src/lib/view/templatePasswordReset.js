@@ -15,13 +15,20 @@ export const resetPassword = () => {
     resetPasswordWithEmail.addEventListener("click", () => {
     var auth = firebase.auth();
     var emailAddress = divReset.querySelector("#resetEmail").value;
-
+//revisar error de esta parte 
     auth.sendPasswordResetEmail(emailAddress).then(function() {
-     Alert("Enviamos un correo para restablecer tu contraseña")
+     alert("Enviamos un correo para restablecer tu contraseña");
     }).catch(function(error) {
-     console.log("envio no exitoso")
+        if(error.message=== "The email address is badly formatted."){
+            alert("por favor ingresa un correo valido")}
+        else if (error.message === "There is no user record corresponding to this identifier. The user may have been deleted."){
+            alert("correo no registrado")
+        }
+
+    console.log(error);
+     console.log("envio no exitoso");
     });
-   
+
     })
 
 return divReset;

@@ -24,13 +24,11 @@ divLogin.innerHTML= viewLogin;
 
 const googleLoginBtn= divLogin.querySelector("#googleBtn"); 
 googleLoginBtn.addEventListener("click", () => {
-    console.log("pruebirijilla");
 loginWithGoogle();
 })
 
 const loginWithEmail = divLogin.querySelector("#logInBtn");
 loginWithEmail.addEventListener("click",() =>{
-    console.log("hola flanders")
     let email = document.getElementById("loginEmail").value;
     let password = document.getElementById("loginPassword").value;
     firebase.auth().signInWithEmailAndPassword(email, password)
