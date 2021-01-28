@@ -31,6 +31,7 @@ registerBtn.addEventListener("click", () => {
           console.log("guardo nombre")
         }).catch(function(error) {
           console.log("no lo guardo :C")
+          console.log(error);
         });
         user.sendEmailVerification().then(function() {
           alert("Te hemos enviado un correo con el link de verificación, para iniciar sesión recuerda verificar tu correo");
@@ -39,6 +40,7 @@ registerBtn.addEventListener("click", () => {
           const uid = currentUserData.uid;
         }).catch(function(error) {
           console.log("ups, salio mal");
+          console.log(error);
         });
       })
       .catch((error) => {
