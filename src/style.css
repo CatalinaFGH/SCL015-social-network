@@ -75,6 +75,7 @@ table {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 25px;
 }
 
 .loginInput{
@@ -101,15 +102,15 @@ table {
 .loginInput:focus{
     outline: 2px;
     border-radius: 3.5px;
-    border-color: #ED4C5C;
+    border-color: #FE6E91;
 }
   
 .loginInput:focus + .loginTextInput,
 .loginInput:valid + .loginTextInput{
     top: -47px;
     left: 10px;
-    background: #ffffff;
-    color: #ED4C5C;
+    background: #E8EBF0;
+    color: #FE6E91;
     border-radius: 3.5px;
 }
 
@@ -119,8 +120,23 @@ table {
     margin-left: 187px;
 }
 
+.loginButtonsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .loginButtonStyle{
     background-color: #F2BAC9;
+    border-radius: 16px;
+    padding: 6px;
+    width: 115px;
+    border: none;
+    font-family: roboto;
+    box-shadow: 3px 3px 3px #999;
 }
 
 .google-btn{
@@ -128,11 +144,58 @@ table {
     align-items: center;
     justify-content: space-evenly;
     background-color: #F2BAC9;
+    border: none;
+    padding: 6px;
+    font-family: roboto;
+    box-shadow: 3px 3px 3px #999;
+}
+
+.googleImageContainer{
+    position: relative;
+    margin-left: -184px;
+    margin-top: -33px;
+    background-color: #F2BAC9;
+    border-radius: 100%;
+    padding: 4px;
+}
+
+.googleImage{
+    width: 30px;
+}
+
+.loginLinksContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .registerLink{
-  color: #FE6E91;
+    text-decoration: none;
+    color: #FE6E91;
 }
+
+.loginLinks{
+    text-decoration: none;
+    color: black;
+    padding: 4px;
+}
+
+.loginLine{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.o{
+  padding: 10px;
+}
+
 
 /* Página principal, el muro */
 
@@ -155,6 +218,7 @@ table {
 }
 
 .fixedFooter{
+  padding-top: 1%;
     height: 8%;
     position: fixed;
     left: 0;
@@ -178,23 +242,47 @@ table {
 .post{
 display: flex;
 flex-direction: column;
-width: 70%;
-height: 30vh;
+width: 80%;
+height: 38vh;
 margin-top: 10%;
 margin-bottom: 10%;
-background-color: #FEFEFE;
-justify-content: space-between;
 }
 
 .postHeader{
-height: 10%;
+height: 13%;
+background-color: #B9F2D7;
+display: flex;
+align-items: center;
+font-family: Roboto;
+font-size: 1.7vh;
+color: #000000;
+}
+
+.imgPost{
+  width: 100%;
+height: auto;
+}
+
+.postProfilePicture{
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+
+.postFooter{
+  display: flex;
+  align-items: center;
+height: 13%;
 background-color: #B9F2D7;
 }
 
-.postFooter{
-height: 10%;
-background-color: #B9F2D7;
+.likeBtn{
+margin-left: 4%;
+margin-right: 4%;
+}
 
+.commentBtn{
+  margin-right: 70%;
 }
 
 /* pagina crear perfil */
@@ -224,6 +312,7 @@ background-color: #B9F2D7;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 6vh;
   }
 
   .newProfileImage{
@@ -232,7 +321,7 @@ background-color: #B9F2D7;
     align-self: center;
     width: 128px;
     height: 128px;
-    border-radius: 100%;
+    border-radius: 20%;
   }
   
   .newProfileBtn{
@@ -244,7 +333,7 @@ background-color: #B9F2D7;
   }
   
   .custom-input-file {
-    background-color: #5493C4;
+    background-color: #ED4C5C;
     color: #fff;
     cursor: pointer;
     font-size: 6vh;
@@ -280,14 +369,59 @@ background-color: #B9F2D7;
     align-self: center;
   }
   
+  .loginProfileInput{
+    width: 200px;
+    margin: auto;
+    display: flex;
+    padding: 10px;
+    border: 2px solid #DADCE0;
+    border-radius: 3.5px;
+}
+
+.loginInput{
+  width: 200px;
+  margin: auto;
+  display: flex;
+  padding: 10px;
+  border: 2px solid #DADCE0;
+  border-radius: 3.5px;
+}
+
+.loginTextInput{
+  position: relative;
+  top: -26px;
+  left: 9px;
+  letter-spacing: 0.05em;
+  color: #80868B;
+  pointer-events: none;
+  font-weight: 200;
+  font-family: sans-serif;
+  transition: .3s;
+}
+
+.loginProfileInput:focus{
+  outline: 2px;
+  border-radius: 3.5px;
+  border-color: #FE6E91;
+}
+
+.loginProfileInput:focus + .loginTextInput,
+.loginProfileInput:valid + .loginTextInput{
+  top: -47px;
+  left: 10px;
+  background: #FEFEFE;
+  color: #FE6E91;
+  border-radius: 3.5px;
+}
   .profileButton{
     width: 110px;
     height: 40px;
-    background-color: #4D8FC2;
+    background-color: #ED4C5C;
     color: #FEFEFE;
     border-radius: 4px;
     border: none;
     letter-spacing: 1.25px;
+    margin-bottom: 3vh;
   }
   
   .link{
@@ -317,8 +451,6 @@ background-color: #B9F2D7;
   
   .scroll-container{
     padding-top: 1.8vh;
-    height: 305px;
-    overflow-y: auto;
   }
   
   .viewprofile{

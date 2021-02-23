@@ -9,9 +9,9 @@ export const wall = () => {
     <main id="wallContentDiv" class="wallContent">
 
     <div class="post">
-    <header class="postHeader"></header>
+    <header class="postHeader"> <img src="img/profilePicture.svg" class="postProfilePicture"> Makeup_Lover </header>
     <img src="img/imagenPruebaPost.png" class="imgPost">
-    <footer class="postFooter"></footer>
+    <footer class="postFooter"><img src="img/likeBtn.svg" class="likeBtn"><img src="img/commentBtn.svg" class="commentBtn"></footer>
     </div>
 
     </main>

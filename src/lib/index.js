@@ -11,6 +11,9 @@
 export const loginWithGoogle = () =>{
 
  const provider = new firebase.auth.GoogleAuthProvider();
+ const firestore = firebase.firestore();
+ const currentUserData = firebase.auth().currentUser;
+ const uid = currentUserData.uid;
  
  firebase.auth()
   .signInWithPopup(provider)
@@ -23,7 +26,11 @@ export const loginWithGoogle = () =>{
     // The signed-in user info.
     var user = result.user;
     console.log("usuario entro");
-    location.assign("#/wall");
+    if(firestore.collection('users').doc(uid) === uid){
+      location.assign("#/wall");
+    } else{
+      location.assign("#/createProfile")
+    }
     console.log("user",user);
   }).catch((error) => {
     // Handle Errors here.
