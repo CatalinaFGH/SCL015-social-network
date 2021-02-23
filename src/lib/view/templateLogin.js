@@ -2,22 +2,32 @@ import { loginWithGoogle } from "../index.js";
 
 export const login = () => {
     const divLogin = document.createElement("div");   
-    divLogin.setAttribute("CLASS","root");
+    divLogin.setAttribute("CLASS","templateLogin");
     const viewLogin = `
+
 <img src="img/logo.png" alt="Beauty Tips Logo">
-<h3>Inicia Sesión</h3>
-<label for="">Correo</label><br>
-<input type="text" id="loginEmail"><br>
-<label for="">Contraseña</label><br>
-<input type="password" id="loginPassword" class="passwordInput">
-<br>
-<button id="logInBtn">Inicia Sesión</button>
+
+<div class= "inputsBigContainer">
+<div class="loginInputsContainer">
+<input type="text" id="loginEmail" class="loginInput" required>
+<span class="loginTextInput">Email</span>
+</div><br>
+
+<div class="loginEmailInputContainer">
+<input type="password" id="loginPassword" class="loginInput" required>
+<span class= "loginTextInput">Contraseña</span>
+<div class="eyeImageContainer">
+<img src= "img/eye-open.svg" id="eye" class= "eyeImage"><br>
+</div>
+</div><br>
+
+<button id="logInBtn" class="loginButtonStyle">Inicia Sesión</button>
 <br>
 <button id="googleBtn" class="google-btn "href="#/wall"> <img src="img/logo-gmail.svg" alt="Google">Inicia Sesión con Google</button> <br><br>
 
 <a href="#/resetPassword">¿Olvidaste tu contraseña?</a>
 
-<p>¿Eres nueva? <a href="#/register"><strong>Regístrate</strong></a></p>
+<p>¿Eres nueva? <a href="#/register"><strong class="registerLink">Regístrate</strong></a></p>
 `;
 
 divLogin.innerHTML= viewLogin;
@@ -56,6 +66,18 @@ loginWithEmail.addEventListener("click",() =>{
   });}
 )
 
+let passwordInput = divLogin.querySelector("#loginPassword");
+let eyeIcon = divLogin.querySelector("#eye");
+
+eyeIcon.addEventListener("click", ()=>{
+// console.log("hola")
+  if(passwordInput.type === "password"){
+    passwordInput.type = "text";
+    eyeIcon.src = "img/eye-closed.svg";
+  }else{
+    passwordInput.type = "password";
+    eyeIcon.src = "img/eye-open.svg";
+}});
+
 return divLogin;
 }
-
