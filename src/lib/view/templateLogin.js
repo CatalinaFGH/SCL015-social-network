@@ -7,24 +7,22 @@ export const login = () => {
 
 <img src="img/logo.png" alt="Beauty Tips Logo">
 
-<div class= "inputsBigContainer">
 <div class="loginInputsContainer">
 <input type="text" id="loginEmail" class="loginInput" required>
 <span class="loginTextInput">Email</span>
-</div><br>
+</div>
 
 <div class="loginEmailInputContainer">
 <input type="password" id="loginPassword" class="loginInput" required>
 <span class= "loginTextInput">Contraseña</span>
 <div class="eyeImageContainer">
-<img src= "img/eye-open.svg" id="eye" class= "eyeImage"><br>
+<img src= "img/eye-open.svg" id="eye" class= "eyeImage">
 </div>
 </div>
-</div><br><br>
+</div>
 
 <div class="loginButtonsContainer">
 <button id="logInBtn" class="loginButtonStyle">Inicia Sesión</button>
-<br>
 
 <div class="loginLine">
 <img src="img/line.svg" alt="lines" class="lines"><p class="o">o</p><img src="img/line.svg" alt="lines" class="lines">
@@ -35,11 +33,10 @@ export const login = () => {
 <img src="img/logo-gmail.svg" alt="Google" class="googleImage">
 </div>
 </div>
-<br><br>
 
 <div class="loginLinksContainer">
 <a href="#/resetPassword" class="loginLinks">¿Olvidaste tu contraseña?</a>
-<p class="loginLinks">¿Eres nueva? <a href="#/register"><strong class="registerLink">Regístrate</strong></a></p>
+<p class="loginLinks">¿Eres nueva?<a href="#/register" class="registerLink"> Regístrate</a></p>
 </div>
 
 `;
