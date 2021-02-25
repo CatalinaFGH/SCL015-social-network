@@ -1,5 +1,3 @@
-// import {registerWithEmail} from '../index.js';
-
 export const register = () => {
     const divRegister = document.createElement("div"); 
     const viewRegister=`

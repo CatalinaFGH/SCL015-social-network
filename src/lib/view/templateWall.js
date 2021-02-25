@@ -27,7 +27,7 @@ export const wall = () => {
       <div class="menuSecondSection">
         <ul>
           <div class="homeUserIconContainer">
-          <img src="img/user.svg" class="homeUserIcon">
+          <img src="img/perfilIcon.svg" class="homeUserIcon">
           <li id="showProfileBtn">Perfil</li>
           </div>
         </ul>
@@ -35,7 +35,7 @@ export const wall = () => {
       <div class="menuThirdSection">
         <ul>
         <div class="homeLogoutIconContainer">
-          <img src="img/Vector.svg" class="homeLogoutIcon">
+          <img src="img/logoutIcon.svg" class="homeLogoutIcon">
           <li id="logoutBtn">Cerrar Sesión</li>
           </div>
         </ul>
@@ -48,7 +48,10 @@ export const wall = () => {
     <div class="post">
     <header class="postHeader"> <img src="img/profilePicture.svg" class="postProfilePicture"> Makeup_Lover </header>
     <img src="img/imagenPruebaPost.png" class="imgPost">
-    <footer class="postFooter"><img src="img/likeBtn.svg" class="likeBtn"><img src="img/commentBtn.svg" class="commentBtn"></footer>
+    <footer class="postFooter">
+    <div><img src="img/likeBtn.svg" class="likeBtn"><img src="img/commentBtn.svg" class="commentBtn"></div>
+    <div class="rowDiv"><h2 class="postUserName">Makeup_lover</h2><p class="postComment">Esta es mi sombra favorita</p></div>
+    <div><p class="viewComments">Ver 5 comentarios</p></div></footer>
     </div>
 
     </main>

@@ -1,13 +1,24 @@
 export const resetPassword = () => {
 
     const divReset = document.createElement('div');
-    const viewReset = `<img src="img/logo.png" alt="Beauty Tips Logo">
-    <h3>Restablecer Contraseña</h3>
+    divReset.setAttribute("CLASS","templateResetPassword");
+    const viewReset = `
+    <img src="img/logo.png" alt="Beauty Tips Logo">
+    <div class="resetPasswordInfoContainer"
+
+    <h2>Restablecer Contraseña</h2>
     <p>Ingresa tu correo y te enviaremos una nueva contraseña</p>
-    <label for="">Correo</label><br>
-    <input type="text" id="resetEmail"><br>
-    <button id="resetPasswordBtn">Restablecer</button>
-    <a id="backBtn" href="#/">Volver</a><br>
+
+    <div class="inputContainer">
+    <input type="text" id="resetEmail" class="loginInput" required>
+    <span class="loginTextInput">Email</span>
+    </div>
+
+    <button class="resetPasswordButton" id="resetPasswordBtn">Restablecer</button>
+    <a class="backButton" id="backBtn" href="#/">Volver</a>
+
+    </div>
+
     `;
     divReset.innerHTML = viewReset;
     
