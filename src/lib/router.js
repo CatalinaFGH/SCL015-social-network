@@ -18,6 +18,9 @@ export const changeRouter = (hash) => {
     else if (hash === '#/createProfile') {
         return showTemplate(hash);
     }
+    else if (hash === '#/login') {
+        return showTemplate(hash);
+    }
     else {
         return showTemplate(hash);
     }
