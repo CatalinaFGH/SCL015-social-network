@@ -455,6 +455,7 @@ margin-right: 4%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 4vh;
   }
     
   .custom-input-file .input-file {
@@ -584,6 +585,7 @@ margin-right: 4%;
     margin-top: 2vh;
   }
   
+  /* pagina ver perfil */
   .profileContent{
     font-family: Roboto;
     font-style: normal;
@@ -607,7 +609,7 @@ margin-right: 4%;
     align-items: center;
   }
   
-  .logInBtn{
+  /* .logInBtn{
     width: 148px;
     height: 40px;
     background-color: #4D8FC2;
@@ -615,6 +617,13 @@ margin-right: 4%;
     border-radius: 4px;
     border: none;
     letter-spacing: 1.25px;
+  } */
+
+  .btnsProfileContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 4vh;
   }
   
 
