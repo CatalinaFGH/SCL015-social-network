@@ -61,12 +61,17 @@ table {
     width: 100%;
     height: 100vh;
     /* padding: 10px; */
+    justify-content: center;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.logoLogin{
+  margin-bottom: 4vh;
 }
 
 .inputsBigContainer{
@@ -142,7 +147,7 @@ table {
 }
 
 .google-btn{
-    background-color: #F2BAC9;
+    background-color: #ffffff;
     border: none;
     outline: none;
     padding: 6px;
@@ -154,9 +159,10 @@ table {
 
 .googleImageContainer{
     position: relative;
+    box-shadow: -2px 4px 3px #999;
     margin-left: -160px;
     margin-top: -35px;
-    background-color: #F2BAC9;
+    background-color: #ffffff;
     border-radius: 100%;
     padding: 4px;
 }

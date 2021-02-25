@@ -5,7 +5,7 @@ export const login = () => {
     divLogin.setAttribute("CLASS","templateLogin");
     const viewLogin = `
 
-<img src="img/logo.png" alt="Beauty Tips Logo">
+<img src="img/logo.png" alt="Beauty Tips Logo" class="logoLogin">
 
 <div class="loginInputsContainer">
 <input type="text" id="loginEmail" class="loginInput" required>
