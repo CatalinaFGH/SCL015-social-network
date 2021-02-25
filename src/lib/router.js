@@ -3,6 +3,7 @@ import { register } from "./view/templateRegister.js";
 import { wall } from "./view/templateWall.js";
 import { resetPassword } from "./view/templatePasswordReset.js";
 import { newProfile } from "./view/templateCreateProfile.js";
+import { profile } from "./view/templateProfile.js";
 
 
 export const changeRouter = (hash) => {
@@ -19,6 +20,9 @@ export const changeRouter = (hash) => {
         return showTemplate(hash);
     }
     else if (hash === '#/login') {
+        return showTemplate(hash);
+    }
+    else if (hash === '#/profile') {
         return showTemplate(hash);
     }
     else {
@@ -43,6 +47,9 @@ export const showTemplate = (hash) => {
     }
     else if (hash === '#/createProfile') {
         containerRoot.appendChild(newProfile());
+    }
+    else if (hash === '#/profile') {
+        containerRoot.appendChild(profile());
     }
     else { 
         containerRoot.innerHTML = "la página no existe";

@@ -9,12 +9,7 @@
 
 //Función de Firebase para iniciar sesión con Google
 export const loginWithGoogle = () =>{
-
  const provider = new firebase.auth.GoogleAuthProvider();
- const firestore = firebase.firestore();
- const currentUserData = firebase.auth().currentUser;
- const uid = currentUserData.uid;
- 
  firebase.auth()
   .signInWithPopup(provider)
   .then((result) => {
@@ -26,11 +21,7 @@ export const loginWithGoogle = () =>{
     // The signed-in user info.
     var user = result.user;
     console.log("usuario entro");
-    if(firestore.collection('users').doc(uid) === uid){
-      location.assign("#/wall");
-    } else{
-      location.assign("#/createProfile")
-    }
+   createProfile();
     console.log("user",user);
   }).catch((error) => {
     // Handle Errors here.
@@ -47,7 +38,16 @@ export const loginWithGoogle = () =>{
 
   // Aqui debemos agregar la autentificación con correo y contraseña y el registro
 // Usuarios Nuevos
-
+function createProfile(){
+  const currentUserData = firebase.auth().currentUser;
+const uid = currentUserData.uid;
+const firestore = firebase.firestore();
+firestore.collection('users').doc(uid).get().then(function(doc){
+  if (doc.exists) {
+    location.assign("#/wall")}
+    else{ 
+location.assign("#/createProfile")}
+})}
 
 
 // export const registerWithEmail = (email,password) =>{

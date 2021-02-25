@@ -61,7 +61,27 @@ export const wall = () => {
 `;
 divWall.innerHTML=viewWall;
 
+const firestore = firebase.firestore();
+let currentUserData = firebase.auth().currentUser;
+const uid = currentUserData.uid;
 
+firestore.collection('users').doc(uid).get().then(function(doc){
+  if (doc.exists) {
+      divWall.querySelector("#homeUserName").innerHTML = doc.data().name;
+      divWall.querySelector("#homeUserMail").innerHTML = currentUserData.email;  
+      divWall.querySelector("#profileMiniPic").src = doc.data().photoURL;
+  } else {
+      console.log("No such document!");
+  }
+}).catch(function(error) {
+  console.log("Error getting document:", error);
+});
+
+let showProfileBtn = divWall.querySelector("#showProfileBtn");
+
+showProfileBtn.addEventListener("click", ()=> {
+location.assign("#/profile");
+})
 
 const logoutButton = divWall.querySelector("#logoutBtn");
     logoutButton.addEventListener("click", () =>{

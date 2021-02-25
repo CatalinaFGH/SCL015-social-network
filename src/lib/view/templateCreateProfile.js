@@ -41,6 +41,7 @@ export const newProfile = () => {
   const firestore = firebase.firestore();
   const currentUserData = firebase.auth().currentUser;
   const uid = currentUserData.uid;
+  const storage = firebase.storage();
   console.log(currentUserData);
 
   let showProfilePicture=()=>{ 
@@ -56,13 +57,13 @@ export const newProfile = () => {
 }
 
 window.onload = showProfilePicture();
-let instagram = divNewProfile.querySelector("#instagram").value;
-  let facebook = divNewProfile.querySelector("#facebook").value;
-  let aboutMe = divNewProfile.querySelector("#aboutMe").value;
 
 const newProfileBtn = divNewProfile.querySelector("#newProfileBtn");
   newProfileBtn.addEventListener("click", () => {
     console.log("click")
+  let instagram = divNewProfile.querySelector("#instagram").value;
+  let facebook = divNewProfile.querySelector("#facebook").value;
+  let aboutMe = divNewProfile.querySelector("#aboutMe").value;
   firestore.collection('users').doc(uid).set({name: currentUserData.displayName,
   email: currentUserData.email,
   instagram: instagram,
@@ -71,7 +72,7 @@ const newProfileBtn = divNewProfile.querySelector("#newProfileBtn");
   userID: uid,
   photoURL: currentUserData.photoURL})
   .then(()=>{
-  location.assign("#/Profile")
+  location.assign("#/profile")
   console.log("guadado")
       });
     });
@@ -99,5 +100,5 @@ let showImg=()=>{
     })})}
 
 
-    return divNewProfile
+    return divNewProfile;
 }
