@@ -59,7 +59,6 @@ loginWithEmail.addEventListener("click",() =>{
     const firestore = firebase.firestore();
     const uid = user.uid;
     if(userVerified === true) { 
-      console.log("usuario entro")
       firestore.collection('users').doc(uid).get().then(function(doc){
             if (doc.exists) {
               location.assign("#/wall")}
