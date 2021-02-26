@@ -28,12 +28,12 @@ export const newPost = () => {
           </div>
           
           <div class="postImgDiv">
-            <img src="img/adjuntarImg.svg" class="imgNewPost">
+            <img src="img/adjuntarImg.svg" class="imgNewPost" id="imgToPost">
           </div>
 
           <textarea id="newPostText" name="newPostText" class="newPostTextInput" rows="4" cols="50" placeholder="Escribe aquí tu mensaje.."></textarea>
           
-          <input type="submit" value="Publicar" class="postButton">
+          <input type="submit" value="Publicar" class="postButton" id="publishBtn">
       </div>
   
       </main>
@@ -46,6 +46,9 @@ export const newPost = () => {
 const firestore = firebase.firestore();
 let currentUserData = firebase.auth().currentUser;
 const uid = currentUserData.uid;
+const storage = firebase.storage();
+const publishBtn = divNewPost.querySelector("#publishBtn");
+
 
 
   const backToWall = divNewPost.querySelector("#backButton");
@@ -68,26 +71,46 @@ const uid = currentUserData.uid;
   let addPicNewPost = divNewPost.querySelector("#newPostImgFile");
   addPicNewPost.addEventListener("change", () => {
     let file = divNewPost.querySelector("#newPostImgFile").files[0];
-    uploadImg(file)});
+    let filePath = `postImages/${file.name}${file.lastModified}`;
+    uploadImg(file,filePath)});
 
-    let uploadImg=(file)=> {
-      let storageRef = firebase.storage().ref('posts');
+    let uploadImg=(file,filePath)=> {
+      let storageRef = firebase.storage().ref(filePath);
      storageRef.put(file).then(function(snapshot) {
-      showImg();
+      showImg(filePath);
     })}
     
-    let showImg=()=>{ 
-      var user = firebase.auth().currentUser;
-        let newImgURL= storage.ref(`usersProfileImgs/${uid}`);
-      newImgURL.getDownloadURL().then((url) => {
-        user.updateProfile({
-          photoURL: url
-        }).then(function() {
-          divNewProfile.querySelector("#profileImage").src = user.photoURL;
-        })})}
+    let showImg=(filePath)=>{ 
+        let newImgURL= storage.ref(filePath);
+        newImgURL.getDownloadURL().then((url) => {
+        divNewPost.querySelector("#imgToPost").src = url;
+        })}
 
 
-
+        publishBtn.addEventListener("click", () => {
+          let file = divNewPost.querySelector("#newPostImgFile").files[0];
+          if (file == null){
+            alert("No has seleccionado una imagen")
+          }
+          else { 
+            let postMessage = divNewPost.querySelector("#newPostText").value;
+            let file = divNewPost.querySelector("#newPostImgFile").files[0];
+            let filePath = `postImages/${file.name}${file.lastModified}`;
+            let newImgURL= storage.ref(filePath);
+            newImgURL.getDownloadURL().then((url) => {
+            firestore.collection('posts').doc().set({
+              userName: currentUserData.displayName,
+              date: Date.now(),
+              userID: uid,
+              postImage: url,
+              message: postMessage,
+              userPhotoURL: currentUserData.photoURL
+              })})
+              .then(()=>{
+            location.assign("#/wall")
+          })
+          }
+        })
 
   return divNewPost;
 }
