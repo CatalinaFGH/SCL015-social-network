@@ -20,7 +20,7 @@ export const wall = () => {
           <img src="" alt="miniatura foto de perfil" id="profileMiniPic" class="miniViewProfileImage">
           <div class="userInfoContainer">
           <li id="homeUserName"></li>
-          <li id="homeUserMail"></li>
+          <li id="homeUserMail" class="wallUserMail"></li>
           </div>
         </ul>    
       </div>
@@ -49,16 +49,16 @@ export const wall = () => {
     <header class="postHeader"> <img src="img/profilePicture.svg" class="postProfilePicture"> Makeup_Lover </header>
     <img src="img/imagenPruebaPost.png" class="imgPost">
     <footer class="postFooter">
-    <div><img src="img/likeBtn.svg" class="likeBtn"><img src="img/commentBtn.svg" class="commentBtn"></div>
+    <div><img src="img/likeBtn.svg" class="likeBtn"><img src="img/commentBtn.svg" class="commentBtn"><img src="img/postMenu.svg" class="postMenu"></div>
     <div class="rowDiv"><h2 class="postUserName">Makeup_lover</h2><p class="postComment">Esta es mi sombra favorita</p></div>
-    <div><p class="viewComments">Ver 5 comentarios</p></div></footer>
+    <div><p class="viewComments">Ver comentarios</p></div></footer>
     </div>
 
     </main>
     
 <footer class="fixedFooter">
   <img src="img/MakeupStoreMap.svg" alt="Mapa">
-  <img src="img/addPost.svg" alt="Nuevo Post" class="newPostBtn">
+  <img src="img/addPost.svg" alt="Nuevo Post" class="newPostBtn" id="newPostButton">
   <img src="img/Search.svg" alt="Buscar">
 </footer>
 `;
@@ -67,6 +67,7 @@ divWall.innerHTML=viewWall;
 const firestore = firebase.firestore();
 let currentUserData = firebase.auth().currentUser;
 const uid = currentUserData.uid;
+const newPostBtn = divWall.querySelector("#newPostButton");
 
 firestore.collection('users').doc(uid).get().then(function(doc){
   if (doc.exists) {
@@ -92,6 +93,11 @@ const logoutButton = divWall.querySelector("#logoutBtn");
     location.assign("#");
   })
 })
+
+newPostBtn.addEventListener("click", ()=> {
+  location.assign("#/newPost");
+})
+
 
 return divWall;
 };

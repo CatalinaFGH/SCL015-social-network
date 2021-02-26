@@ -144,6 +144,7 @@ table {
     outline: none;
     font-family: roboto;
     box-shadow: 0px 4px 3px #999;
+    letter-spacing: 0.05em;
 }
 
 .google-btn{
@@ -236,8 +237,23 @@ table {
   align-items: center;
 }
 
+.resetPasswordTitle{
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    margin: 15px;
+}
+
+.resetPasswordParagraph{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
 .resetPasswordButton{
-  background-color: #B9F2D7;
+  background-color: #F4F39A;
   border-radius: 16px;
   padding: 6px;
   width: 115px;
@@ -246,25 +262,59 @@ table {
   font-family: roboto;
   box-shadow: 0px 4px 3px #999;
   letter-spacing: 0.05em;
-  margin: 10px;
+  margin: 15px;
 }
 
 .backButton{
   text-decoration: none;
   font-size: 13px;
   color: black;
+  font-weight: bold;
 }
 
+/* Pagina Registro */
+.templateRegister{
+  background-image: url(img/fondo.svg);
+  width: 100%;
+  height: 100vh;
+  /* padding: 10px; */
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 
+.registerTitle{
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 3vh;
+  margin-bottom: 2vh;
+  letter-spacing: 0.05em;
+}
 
+.registerBtn{
+  background-color: #F4F39A;
+  border-radius: 16px;
+  padding: 6px;
+  width: 115px;
+  border: none;
+  outline: none;
+  font-family: roboto;
+  box-shadow: 0px 4px 3px #999;
+  letter-spacing: 0.05em;
+  margin: 15px;
+  text-decoration: none;
+}
 
-
-
-
-
-
-
-
+.backRegisterButton{
+  text-decoration: none;
+  font-size: 13px;
+  color: black;
+  font-weight: bold;
+}
 
 /* Página principal, el muro */
 
@@ -323,6 +373,10 @@ header{
   border-radius: 100%;
   margin-left: 20px;
   position: absolute;
+}
+
+.wallUserMail{
+  font-size: 12px;
 }
 
 .menuSecondSection{
@@ -710,6 +764,76 @@ margin-right: 4%;
     margin-top: 4vh;
   }
   
+/* pagina nuevo post */
+.newPostTitle{
+  display: flex;
+  align-items: center;
+  background-color: #F2BAC9;
+  left: 0;
+  top: 0;
+  height: 55px;
+  width: 100vw;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;  
+  color: #000000;
+}
+
+.backBtn{
+  margin-left: 4vw;
+  margin-right: 20vw;
+}
+
+.newPostDiv{
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+height: 83vh;
+}
+
+.newPostContent{
+  width: 70%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newPost{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2vh;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 7vh;
+  background-color: #B9F2D7;
+}
+
+.postImgDiv{
+  width: 100%;
+  height: 100%;
+}
+
+.selectFile{
+  margin-left: 2vw;
+}
+
+.imgNewPost{
+  /* height: 100%; */
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+
+
+
+
 
 
 

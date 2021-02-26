@@ -1,16 +1,26 @@
 export const register = () => {
     const divRegister = document.createElement("div"); 
+    divRegister.setAttribute("CLASS", "templateRegister")
     const viewRegister=`
   <img src="img/logo.png" alt="Beauty Tips Logo">
-  <h3>Registrate</h3>
-  <label for="">Nombre de usuario</label><br>
-  <input type="text" id="theUserName"><br>
-  <label for="">Correo</label><br>
-  <input type="text" id="theEmail"><br>
-  <label for="">Contraseña</label><br>
-  <input type="password" id="thePassword" class="passwordInput"><br>
-  <a id="registerBtn" href="#/register">Enviar</a><br>
-  <a id="backBtn" href="#/">Volver</a><br>
+  <h3 class="registerTitle">Regístrate</h3><br>
+
+  <div class="inputContainer">
+  <input type="text" id="theUserName" class="loginInput" required>
+  <span class="loginTextInput">Nombre de usuario</span>
+  </div>
+  <div class="inputContainer">
+  <input type="text" id="theEmail" class="loginInput" required>
+  <span class="loginTextInput">Correo</span>
+  </div>
+
+  <div class="inputContainer">
+  <input type="text" id="thePassword" class="loginInput" required>
+  <span class="loginTextInput">Contraseña</span>
+  </div>
+
+  <button id="registerBtn" class="registerBtn" href="#/register">Registrarse</button>
+  <a id="toGoBackButton" class="backRegisterButton" href="#/">Volver</a><br>
 `;
 
 divRegister.innerHTML=viewRegister;
@@ -52,6 +62,13 @@ registerBtn.addEventListener("click", () => {
         // ..
       });}
 )
+
+
+
+const backToLogin = divRegister.querySelector("#toGoBackButton");
+backToLogin.addEventListener("click", () => {
+    location.assign("#")
+})
 
 return divRegister;
   }

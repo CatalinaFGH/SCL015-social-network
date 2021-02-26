@@ -4,10 +4,10 @@ export const resetPassword = () => {
     divReset.setAttribute("CLASS","templateResetPassword");
     const viewReset = `
     <img src="img/logo.png" alt="Beauty Tips Logo">
-    <div class="resetPasswordInfoContainer"
+    <div class="resetPasswordInfoContainer">
 
-    <h2>Restablecer Contraseña</h2>
-    <p>Ingresa tu correo y te enviaremos una nueva contraseña</p>
+    <h2 class="resetPasswordTitle">Restablecer Contraseña</h2>
+    <p class="resetPasswordParagraph">Ingresa tu correo y te enviaremos una nueva contraseña</p>
 
     <div class="inputContainer">
     <input type="text" id="resetEmail" class="loginInput" required>
@@ -15,7 +15,7 @@ export const resetPassword = () => {
     </div>
 
     <button class="resetPasswordButton" id="resetPasswordBtn">Restablecer</button>
-    <a class="backButton" id="backBtn" href="#/">Volver</a>
+    <a class="backButton" id="goBackButton" href="#/">Volver</a>
 
     </div>
 
@@ -40,6 +40,12 @@ export const resetPassword = () => {
      console.log("envio no exitoso");
     });
 
+    })
+
+
+    const toLogin = divReset.querySelector("#goBackButton");
+    toLogin.addEventListener("click", () => {
+        location.assign("#")
     })
 
 return divReset;
