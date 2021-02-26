@@ -45,14 +45,7 @@ export const wall = () => {
     <!-- contenido del muro -->
     <main id="wallContentDiv" class="wallContent">
 
-    <div class="post">
-    <header class="postHeader"> <img src="img/profilePicture.svg" class="postProfilePicture"> Makeup_Lover </header>
-    <img src="img/imagenPruebaPost.png" class="imgPost">
-    <footer class="postFooter">
-    <div><img src="img/likeBtn.svg" class="likeBtn"><img src="img/commentBtn.svg" class="commentBtn"><img src="img/postMenu.svg" class="postMenu"></div>
-    <div class="rowDiv"><h2 class="postUserName">Makeup_lover</h2><p class="postComment">Esta es mi sombra favorita</p></div>
-    <div><p class="viewComments">Ver comentarios</p></div></footer>
-    </div>
+    
 
     </main>
     
@@ -80,6 +73,27 @@ firestore.collection('users').doc(uid).get().then(function(doc){
 }).catch(function(error) {
   console.log("Error getting document:", error);
 });
+
+
+firestore.collection("posts").orderBy("date")
+    .onSnapshot(function(querySnapshot) {
+      divWall.querySelector("#wallContentDiv").innerHTML = "";
+        querySnapshot.forEach(function(doc) {
+          divWall.querySelector("#wallContentDiv").innerHTML += `
+                              <div class="post">
+                              <header class="postHeader"> <img src="${doc.data().userPhotoURL}" class="postProfilePicture">${doc.data().userName}</header>
+                              <img src="${doc.data().postImage}" class="imgPost">
+                              <footer class="postFooter">
+                              <div><img src="img/likeBtn.svg" class="likeBtn"><img src="img/commentBtn.svg" class="commentBtn"><img src="img/postMenu.svg" class="postMenu"></div>
+                              <div class="rowDiv"><h2 class="postUserName">${doc.data().userName}</h2><p class="postComment">${doc.data().message}</p></div>
+                              <div><p class="viewComments">Ver comentarios</p></div></footer>
+                              </div>`    ;
+        })});
+
+
+
+
+
 
 let showProfileBtn = divWall.querySelector("#showProfileBtn");
 

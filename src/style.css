@@ -469,7 +469,6 @@ margin-bottom: 10%;
 }
 
 .postHeader{
-height: 13%;
 background-color: #B9F2D7;
 display: flex;
 align-items: center;
@@ -486,6 +485,9 @@ height: auto;
 .postProfilePicture{
   margin-left: 2%;
   margin-right: 2%;
+  width: 24px;
+  height: 22px;
+  border-radius: 100%;
 }
 
 .rowDiv{
@@ -513,6 +515,7 @@ color: rgba(0, 0, 0, 0.6);
 font-size: 1.7vh;
 line-height: 2.5vh;
 color: #000000;
+margin-right: 2vw;
 }
 
 .viewComments{
