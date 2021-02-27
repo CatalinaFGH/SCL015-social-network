@@ -21,11 +21,10 @@ export const newPost = () => {
           <header class="newPost">
             Adjunta una foto
             <img src="img/adjuntar.svg" alt="adjuntarArchivo" id="selectFile" class="selectFile">
+            <input type="file" id="newPostImgFile" class="inputFileNewPost" value="">
           </header>
 
-          <div class="customInputFileNewPost">
-          <input type="file" id="newPostImgFile" class="inputFileNewPost" value="">
-          </div>
+         
           
           <div class="postImgDiv">
             <img src="img/adjuntarImg.svg" class="imgNewPost" id="imgToPost">
