@@ -75,7 +75,7 @@ firestore.collection('users').doc(uid).get().then(function(doc){
 });
 
 
-firestore.collection("posts").orderBy("date")
+firestore.collection("posts").orderBy("date", "desc")
     .onSnapshot(function(querySnapshot) {
       divWall.querySelector("#wallContentDiv").innerHTML = "";
         querySnapshot.forEach(function(doc) {
