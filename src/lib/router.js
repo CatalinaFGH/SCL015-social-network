@@ -5,6 +5,7 @@ import { resetPassword } from "./view/templatePasswordReset.js";
 import { newProfile } from "./view/templateCreateProfile.js";
 import { profile } from "./view/templateProfile.js";
 import { newPost } from "./view/templateNewPost.js";
+import { map } from "./view/templateMap.js";
 
 
 
@@ -28,6 +29,9 @@ export const changeRouter = (hash) => {
         return showTemplate(hash);
     }
     else if (hash === '#/profile') {
+        return showTemplate(hash);
+    }
+    else if (hash === '#/map') {
         return showTemplate(hash);
     }
     else {
@@ -58,6 +62,9 @@ export const showTemplate = (hash) => {
     }
     else if (hash === '#/newPost') {
         containerRoot.appendChild(newPost());
+    }
+    else if (hash === '#/map') {
+        containerRoot.appendChild(map());
     }
     else { 
         containerRoot.innerHTML = "la página no existe";

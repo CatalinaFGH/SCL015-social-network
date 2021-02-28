@@ -50,7 +50,7 @@ export const wall = () => {
     </main>
     
 <footer class="fixedFooter">
-  <img src="img/MakeupStoreMap.svg" alt="Mapa">
+  <img src="img/MakeupStoreMap.svg" alt="Mapa" id="viewMap">
   <img src="img/addPost.svg" alt="Nuevo Post" class="newPostBtn" id="newPostButton">
   <img src="img/Search.svg" alt="Buscar">
 </footer>
@@ -79,85 +79,104 @@ firestore.collection("posts").orderBy("date", "desc")
     .onSnapshot(function(querySnapshot) {
       divWall.querySelector("#wallContentDiv").innerHTML = "";
         querySnapshot.forEach(function(doc) {
-          divWall.querySelector("#wallContentDiv").innerHTML += `
-                              <div class="post">
-                              <header class="postHeader"> <img src="${doc.data().userPhotoURL}" class="postProfilePicture">${doc.data().userName}</header>
-                              <img src="${doc.data().postImage}" class="imgPost">
-                              <footer class="postFooter">
-                              <div id="divContent"><img src="img/likeBtn.svg" class="likeBtn"><img src="img/commentBtn.svg" class="commentBtn"><img src="img/postMenu.svg" class="postMenu" id="postMenu"></div>
-                              <div class="rowDiv"><h2 class="postUserName">${doc.data().userName}</h2><p class="postComment">${doc.data().message}</p></div>
-                              <div><p class="viewComments">Ver comentarios</p></div></footer>
-                              </div>`;
-                              // let wall = divWall.querySelector("#wallContentDiv");
-                              // let post = document.createElement("DIV");
-                              // let header = document.createElement("HEADER");
-                              // let userPic = document.createElement("IMG");
-                              // let postImage = document.createElement("IMG");
-                              // let footer = document.createElement("FOOTER");
-                              // let divContent = divWall.querySelector("#divContent");
-                              // let likeImage = document.createElement("IMG");
-                              // let commentImage = document.createElement("IMG");
-                              // let postMenu = document.createElement("IMG");
-                              // let rowDiv = document.createElement("DIV");
-                              // let postUserName = document.createElement("H2");
-                              // let postDescription = document.createElement("P");
-                              // let divComments = document.createElement("DIV");
-                              // let comments = document.createElement("P");
-                              // post.setAttribute("class","post");
-                              // header.setAttribute("class","postHeader");
-                              // userPic.setAttribute("class","postProfilePicture");
-                              // postImage.setAttribute("class", "imgPost")
-                              // footer.setAttribute("class","postFooter")
-                              // likeImage.setAttribute("class","likeBtn")
-                              // likeImage.setAttribute("id","likeBtn")
-                              // likeImage.setAttribute("src","img/likeBtn.svg")
-                              // commentImage.setAttribute("class","commentBtn")
-                              // commentImage.setAttribute("id","commentBtn")
-                              // commentImage.setAttribute("src","img/commentBtn.svg")
-                              // postMenu.setAttribute("class","postMenu")
-                              // postMenu.setAttribute("id","postMenu")
-                              // postMenu.setAttribute("src","img/postMenu.svg")
-                              // rowDiv.setAttribute("class","rowDiv")
-                              // postUserName.setAttribute("class","postUserName")
-                              // postDescription.setAttribute("class","postComment")
-                              // comments.setAttribute("class","viewComments")
-                              // comments.setAttribute("id","viewComments")
-                              // wall.appendChild(post)
-                              // post.appendChild(header)
-                              // header.appendChild(userPic)
-                              // post.appendChild(postImage)
-                              // post.appendChild(footer)
-                              // footer.appendChild(divContent)
-                              // divContent.appendChild(likeImage)
-                              // divContent.appendChild(commentImage)
-                              // divContent.appendChild(postMenu)
-                              // footer.appendChild(rowDiv)
-                              // rowDiv.appendChild(postUserName)
-                              // rowDiv.appendChild(postDescription)
-                              // footer.appendChild(divComments)
-                              // divComments.appendChild(comments)
-                              // userPic.src = doc.data().userPhotoURL
-                              // header.innerHTML = doc.data().userName
-                              // postImage.src = doc.data().postImage
-                              // postUserName.innerHTML = doc.data().userName
-                              // postDescription.innerHTML = doc.data().message
-                              // comments.innerHTML = "verComentarios"
-                              // postMenu.onclick = function (){
-                              //   console.log("holaa")
+          // divWall.querySelector("#wallContentDiv").innerHTML += `
+          //                     <div class="post">
+          //                     <header class="postHeader"> <img src="${doc.data().userPhotoURL}" class="postProfilePicture">${doc.data().userName}</header>
+          //                     <img src="${doc.data().postImage}" class="imgPost">
+          //                     <footer class="postFooter">
+          //                     <div id="divContent"><img src="img/likeBtn.svg" class="likeBtn"><img src="img/commentBtn.svg" class="commentBtn"><img src="img/postMenu.svg" class="postMenu" id="postMenu"></div>
+          //                     <div class="rowDiv"><h2 class="postUserName">${doc.data().userName}</h2><p class="postComment">${doc.data().message}</p></div>
+          //                     <div><p class="viewComments">Ver comentarios</p></div></footer>
+          //                     </div>`;
+                              let wall = divWall.querySelector("#wallContentDiv");
+                              let post = document.createElement("DIV");
+                              let header = document.createElement("HEADER");
+                              let userPic = document.createElement("IMG");
+                              let postImage = document.createElement("IMG");
+                              let footer = document.createElement("FOOTER");
+                              let divContent = document.createElement("DIV");
+                              let likeImage = document.createElement("IMG");
+                              let imageSpan = document.createElement("SPAN");
+                              let commentImage = document.createElement("IMG");
+                              let postMenu = document.createElement("IMG");
+                              let rowDiv = document.createElement("DIV");
+                              let postUserName = document.createElement("H2");
+                              let postDescription = document.createElement("P");
+                              let headerUserName = document.createElement("P");
+                              let divComments = document.createElement("DIV");
+                              let comments = document.createElement("P");
+                              post.setAttribute("class","post");
+                              header.setAttribute("class","postHeader");
+                              userPic.setAttribute("class","postProfilePicture");
+                              postImage.setAttribute("class", "imgPost");
+                              footer.setAttribute("class","postFooter");
+                              likeImage.setAttribute("class","likeBtn");
+                              likeImage.setAttribute("id","likeBtn");
+                              likeImage.setAttribute("src","img/emptyHeart.svg");
+                              imageSpan.setAttribute("class","countSpan");
+                              imageSpan.setAttribute("id","count");
+                              commentImage.setAttribute("class","commentBtn");
+                              commentImage.setAttribute("id","commentBtn");
+                              commentImage.setAttribute("src","img/commentBtn.svg");
+                              postMenu.setAttribute("class","postMenu");
+                              postMenu.setAttribute("id","postMenu");
+                              postMenu.setAttribute("src","img/postMenu.svg");
+                              postUserName.setAttribute("class","postUserName");
+                              postDescription.setAttribute("class","postComment");
+                              comments.setAttribute("class","viewComments");
+                              comments.setAttribute("id","viewComments");
+                              wall.appendChild(post);
+                              post.appendChild(header);
+                              post.appendChild(postImage);
+                              post.appendChild(footer);
+                              footer.appendChild(divContent);   
+                              divContent.appendChild(likeImage);
+                              divContent.appendChild(imageSpan);
+                              divContent.appendChild(commentImage);
+                              divContent.appendChild(postMenu);
+                              footer.appendChild(rowDiv);
+                              rowDiv.appendChild(postUserName);
+                              rowDiv.appendChild(postDescription);
+                              footer.appendChild(divComments);
+                              divComments.appendChild(comments);
+                              userPic.src= doc.data().userPhotoURL
+                              headerUserName.innerHTML = doc.data().userName;
+                              header.appendChild(userPic);
+                              header.appendChild(headerUserName);
+                              postImage.src = doc.data().postImage;
+                              postUserName.innerHTML = doc.data().userName;
+                              postDescription.innerHTML = doc.data().message;
+                              comments.innerHTML = "Ver comentarios";
+                              postMenu.onclick = function(){
+                                console.log("holaa")
+                              }
+                              // likeImage.onclick = function(){
+                              //   console.log("like")
+                              
+                              //     if (likeImage.clicked === true){
+                              //       likeImage.src = "img/fullHeart.svg";
+                              //       imageSpan.textContent++;
+                              //     }
+                              //     else {
+                              //       likeImage.src = "img/emptyHeart.svg";
+                              //       imageSpan.textContent--;
+                              //     };
                               // }
 
-                          
 
+        });
+      });
 
+  let viewMap = divWall.querySelector("#viewMap")
+        viewMap.addEventListener("click", ()=> {
+          location.assign("#/map");
+        })
 
-
-                              
-
-        })});
-
-
-
-
+// Función para el corazón del like ----------------------------------------
+        // let likeBtn = divWall.querySelector("likeBtn");
+        // let likeIcon = divWall.querySelector("#likeBtn");
+ 
+// -----------------------------------------------------------------------
 
 
 let showProfileBtn = divWall.querySelector("#showProfileBtn");

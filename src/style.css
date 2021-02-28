@@ -60,7 +60,6 @@ table {
     background-image: url(img/fondo.svg);
     width: 100%;
     height: 100vh;
-    /* padding: 10px; */
     justify-content: center;
     background-repeat: no-repeat;
     background-position: center;
@@ -152,7 +151,6 @@ table {
 }
 .loginButtonStyle:active{
   transform: translateY(4px);
-  /* box-shadow: 0px 2px 1px #fff; */
   box-shadow: none;
 }
 
@@ -165,6 +163,14 @@ table {
     box-shadow: 0px 4px 3px #999;
     margin-left: 20px;
     margin-top: 10px;
+}
+
+.google-btn:hover{
+  background-color: #ffffff;
+}
+.google-btn:active{
+  transform: translateY(4px);
+  box-shadow: none;
 }
 
 .googleImageContainer{
@@ -229,7 +235,6 @@ table {
   background-image: url(img/fondo.svg);
   width: 100%;
   height: 100vh;
-  /* padding: 10px; */
   justify-content: center;
   background-repeat: no-repeat;
   background-position: center;
@@ -274,6 +279,14 @@ table {
   margin: 15px;
 }
 
+.resetPasswordButton:hover{
+  background: #f3f16a;
+}
+.resetPasswordButton:active{
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
 .backButton{
   text-decoration: none;
   font-size: 13px;
@@ -286,7 +299,6 @@ table {
   background-image: url(img/fondo.svg);
   width: 100%;
   height: 100vh;
-  /* padding: 10px; */
   justify-content: center;
   background-repeat: no-repeat;
   background-position: center;
@@ -305,7 +317,7 @@ table {
 }
 
 .registerBtn{
-  background-color: #F4F39A;
+  background-color: #f4f39a;
   border-radius: 16px;
   padding: 6px;
   width: 115px;
@@ -316,6 +328,14 @@ table {
   letter-spacing: 0.05em;
   margin: 15px;
   text-decoration: none;
+}
+
+.registerBtn:hover{
+  background: #f3f16a;
+}
+.registerBtn:active{
+  transform: translateY(4px);
+  box-shadow: none;
 }
 
 .backRegisterButton{
@@ -513,6 +533,12 @@ height: 40%;
 background-color: #B9F2D7;
 }
 
+.postUserName{
+font-family: Roboto;
+font-size: 2.0vh;
+color: rgba(0, 0, 0, 1);
+}
+
 .postComment{
 font-family: Roboto;
 font-size: 1.7vh;
@@ -536,6 +562,9 @@ color: rgba(0, 0, 0, 0.6);
 
 .likeBtn{
 margin-right: 4%;
+width: 17px;
+height: 17px;
+
 }
 
 .commentBtn{
@@ -587,7 +616,16 @@ margin-right: 4%;
     align-items:center;
     justify-content: center;
     margin-top: 2vh;
+    box-shadow: 0px 4px 3px #999;
   }
+
+  .newProfileBtn:hover{
+    background-color: #ED4C5C;
+  }
+  .newProfileBtn:active{
+    transform: translateY(4px);
+    box-shadow: none;
+  }  
   
   .custom-input-file {
     background-color: #ED4C5C;
@@ -681,8 +719,17 @@ margin-right: 4%;
     letter-spacing: 1.25px;
     margin-bottom: 3vh;
     outline: none;
+    box-shadow: 0px 4px 3px #999;
   }
-  
+
+  .profileButton:hover{
+    background-color: #ED4C5C;
+  }
+  .profileButton:active{
+    transform: translateY(4px);
+    box-shadow: none;
+  }  
+
   .link{
     text-decoration: none;
     color: #FEFEFE;
@@ -760,16 +807,6 @@ margin-right: 4%;
     align-items: center;
   }
   
-  /* .logInBtn{
-    width: 148px;
-    height: 40px;
-    background-color: #4D8FC2;
-    color: #FEFEFE;
-    border-radius: 4px;
-    border: none;
-    letter-spacing: 1.25px;
-  } */
-
   .btnsProfileContainer{
     display: flex;
     flex-direction: row;
@@ -887,32 +924,18 @@ background-color: #F3F7F9;
   padding: 2vh 4vw 2vh 4vw;
   border: none;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  box-shadow: 0px 4px 3px #999;
   outline: none;
 }
 
-/* .customInputFileNewPost{
-  cursor: pointer;
-  height: 40px;
-  position: absolute;
-  left: 50px;
-  top: 130px;
-  text-align: center;
-  width: 70%;
+.postButton:hover{
+  background: #f79db5;
+}
+.postButton:active{
+  transform: translateY(4px);
+  box-shadow: none;
 }
 
-
-.customInputFileNewPost .inputFileNewPost{
-  cursor: pointer;
-  font-size: 10vh;
-  margin: 0;
-  opacity: 0;
-  outline: 0 none;
-  padding: 0;
-  width: 100%;
-  height: 40px;
-  position: absolute;
-  left: 1px;
-} */
 
 .inputFileNewPost{
     cursor: pointer;
