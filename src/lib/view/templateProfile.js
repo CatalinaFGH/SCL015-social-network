@@ -19,7 +19,7 @@ export const profile = () => {
  </div>
  </main>
  <div class="btnsProfileContainer">
- <button class="profileButton"><a href="#/createProfile" class="link">EDITAR</a></button>  <button class="profileButton"><a href="#/wall" class="link">HOME</a></button>
+ <button class="profileButton"><a href="#/createProfile" class="link">EDITAR</a></button>  <button class="profileButton" id="profileButton2"><a href="#/wall" class="link">MURO</a></button>
  </div>
   <footer class="fixedFooter">
   </footer>

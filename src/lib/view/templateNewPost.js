@@ -103,6 +103,7 @@ const publishBtn = divNewPost.querySelector("#publishBtn");
               userID: uid,
               postImage: url,
               message: postMessage,
+              likes: [],
               userPhotoURL: currentUserData.photoURL
               })})
               .then(()=>{
