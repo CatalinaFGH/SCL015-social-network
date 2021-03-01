@@ -61,6 +61,7 @@ const firestore = firebase.firestore();
 let currentUserData = firebase.auth().currentUser;
 const uid = currentUserData.uid;
 const newPostBtn = divWall.querySelector("#newPostButton");
+let likes = [];
 
 firestore.collection('users').doc(uid).get().then(function(doc){
   if (doc.exists) {
@@ -150,18 +151,22 @@ firestore.collection("posts").orderBy("date", "desc")
                               postMenu.onclick = function(){
                                 console.log("holaa")
                               }
-                              // likeImage.onclick = function(){
-                              //   console.log("like")
-                              
-                              //     if (likeImage.clicked === true){
-                              //       likeImage.src = "img/fullHeart.svg";
-                              //       imageSpan.textContent++;
-                              //     }
-                              //     else {
-                              //       likeImage.src = "img/emptyHeart.svg";
-                              //       imageSpan.textContent--;
-                              //     };
-                              // }
+                              likeImage.onclick = function(){
+
+                                  if (likes.includes(uid) === true){
+                                    likeImage.src = "img/emptyHeart.svg";
+                                    likes.splice(0,1);
+                                    console.log("dislike");
+                                    imageSpan.textContent--;
+                                  }
+                                  else {
+                                    console.log("like")
+                                    likeImage.src = "img/fullHeart.svg"
+                                    likes.push(uid);
+                                    imageSpan.textContent++;
+                                  };
+
+                              }
 
 
         });
