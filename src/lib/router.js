@@ -6,9 +6,6 @@ import { newProfile } from "./view/templateCreateProfile.js";
 import { profile } from "./view/templateProfile.js";
 import { newPost } from "./view/templateNewPost.js";
 import { map } from "./view/templateMap.js";
-import { comment } from "./view/templateNewComment.js";
-
-
 
 export const changeRouter = (hash) => {
     if (hash === '#/register') {
@@ -35,9 +32,6 @@ export const changeRouter = (hash) => {
     else if (hash === '#/map') {
         return showTemplate(hash);
     }
-    else if (hash === '#/newComment') {
-        return showTemplate(hash);
-    }
     else {
         return showTemplate(hash);
     }
@@ -45,14 +39,14 @@ export const changeRouter = (hash) => {
 
 export const showTemplate = (hash) => {
     const containerRoot = document.getElementById('root');
-    containerRoot.innerHTML="";
-     if (hash === '#/' || hash === '' || hash === '#'|| hash === '/') {
+    containerRoot.innerHTML = "";
+    if (hash === '#/' || hash === '' || hash === '#' || hash === '/') {
         containerRoot.appendChild(login());
     }
-    else if (hash === '#/register'){
+    else if (hash === '#/register') {
         containerRoot.appendChild(register());
     }
-    else if (hash === "#/wall"){
+    else if (hash === "#/wall") {
         containerRoot.appendChild(wall());
     }
     else if (hash === '#/resetPassword') {
@@ -70,10 +64,7 @@ export const showTemplate = (hash) => {
     else if (hash === '#/map') {
         containerRoot.appendChild(map());
     }
-    else if (hash === '#/newComment') {
-        containerRoot.appendChild(comment());
-    }
-    else { 
+    else {
         containerRoot.innerHTML = "la página no existe";
     }
 }

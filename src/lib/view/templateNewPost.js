@@ -1,7 +1,7 @@
 export const newPost = () => {
-    const divNewPost = document.createElement("div"); 
-    divNewPost.setAttribute("CLASS","templateNewPost");
-      const viewNewPost =`
+  const divNewPost = document.createElement("div");
+  divNewPost.setAttribute("CLASS", "templateNewPost");
+  const viewNewPost = `
   
       <!-- Header fijo -->
       <div class="newPostTitle" id="contentMenu">
@@ -24,8 +24,6 @@ export const newPost = () => {
             <input type="file" id="newPostImgFile" class="inputFileNewPost" value="">
           </header>
 
-         
-          
           <div class="postImgDiv">
             <img src="img/adjuntarImg.svg" class="imgNewPost" id="imgToPost">
           </div>
@@ -40,77 +38,94 @@ export const newPost = () => {
   <footer class="fixedFooter">
   </footer>
   `;
-  divNewPost.innerHTML=viewNewPost;
-
-const firestore = firebase.firestore();
-let currentUserData = firebase.auth().currentUser;
-const uid = currentUserData.uid;
-const storage = firebase.storage();
-const publishBtn = divNewPost.querySelector("#publishBtn");
-
-
-
-  const backToWall = divNewPost.querySelector("#backButton");
-  backToWall.addEventListener("click", () => {
-      location.assign("#/wall")
-  })
-
-  firestore.collection('users').doc(uid).get().then(function(doc){
-    if (doc.exists) {
-      divNewPost.querySelector("#newPostUserName").innerHTML = doc.data().name;
-      divNewPost.querySelector("#newPostProfilePic").src = doc.data().photoURL;
-    } else {
-        console.log("No such document!");
-    }
-  }).catch(function(error) {
-    console.log("Error getting document:", error);
-  });
+  divNewPost.innerHTML = viewNewPost;
   
-
+  //Variables globales a utilizar
+  const firestore = firebase.firestore();
+  let currentUserData = firebase.auth().currentUser;
+  const uid = currentUserData.uid;
+  const storage = firebase.storage();
+  const publishBtn = divNewPost.querySelector("#publishBtn");
+  const backToWall = divNewPost.querySelector("#backButton");
   let addPicNewPost = divNewPost.querySelector("#newPostImgFile");
+  
+  //función para volver al muro principal
+  backToWall.addEventListener("click", () => {
+    location.assign("#/wall");
+  });
+
+  //función para imprimir información del usuario en pantalla
+  firestore
+    .collection("users")
+    .doc(uid)
+    .get()
+    .then(function (doc) {
+      if (doc.exists) {
+        divNewPost.querySelector(
+          "#newPostUserName"
+        ).innerHTML = doc.data().name;
+        divNewPost.querySelector(
+          "#newPostProfilePic"
+        ).src = doc.data().photoURL;
+      } else {
+        console.log("No such document!");
+      }
+    })
+    .catch(function (error) {
+      console.log("Error getting document:", error);
+    });
+
+  //función para agregar imagen a nuevo post del usuario
   addPicNewPost.addEventListener("change", () => {
     let file = divNewPost.querySelector("#newPostImgFile").files[0];
     let filePath = `postImages/${file.name}${file.lastModified}`;
-    uploadImg(file,filePath)});
+    uploadImg(file, filePath);
+  });
 
-    let uploadImg=(file,filePath)=> {
-      let storageRef = firebase.storage().ref(filePath);
-     storageRef.put(file).then(function(snapshot) {
+  //función para subir imagen a firebase
+  let uploadImg = (file, filePath) => {
+    let storageRef = firebase.storage().ref(filePath);
+    storageRef.put(file).then(function (snapshot) {
       showImg(filePath);
-    })}
-    
-    let showImg=(filePath)=>{ 
-        let newImgURL= storage.ref(filePath);
-        newImgURL.getDownloadURL().then((url) => {
-        divNewPost.querySelector("#imgToPost").src = url;
-        })}
+    });
+  };
+  
+  //función para imprimir imagen en la pantalla 
+  let showImg = (filePath) => {
+    let newImgURL = storage.ref(filePath);
+    newImgURL.getDownloadURL().then((url) => {
+      divNewPost.querySelector("#imgToPost").src = url;
+    });
+  };
 
-
-        publishBtn.addEventListener("click", () => {
-          let file = divNewPost.querySelector("#newPostImgFile").files[0];
-          if (file == null){
-            alert("No has seleccionado una imagen")
-          }
-          else { 
-            let postMessage = divNewPost.querySelector("#newPostText").value;
-            let file = divNewPost.querySelector("#newPostImgFile").files[0];
-            let filePath = `postImages/${file.name}${file.lastModified}`;
-            let newImgURL= storage.ref(filePath);
-            newImgURL.getDownloadURL().then((url) => {
-            firestore.collection('posts').doc().set({
-              userName: currentUserData.displayName,
-              date: Date.now(),
-              userID: uid,
-              postImage: url,
-              message: postMessage,
-              likes: [],
-              userPhotoURL: currentUserData.photoURL
-              })})
-              .then(()=>{
-            location.assign("#/wall")
-          })
-          }
+  //función para guardar nuevo post en firebase
+  publishBtn.addEventListener("click", () => {
+    let file = divNewPost.querySelector("#newPostImgFile").files[0];
+    if (file == null) {
+      alert("No has seleccionado una imagen");
+    } else {
+      let postMessage = divNewPost.querySelector("#newPostText").value;
+      let file = divNewPost.querySelector("#newPostImgFile").files[0];
+      let filePath = `postImages/${file.name}${file.lastModified}`;
+      let newImgURL = storage.ref(filePath);
+      newImgURL
+        .getDownloadURL()
+        .then((url) => {
+          firestore.collection("posts").doc().set({
+            userName: currentUserData.displayName,
+            date: Date.now(),
+            userID: uid,
+            postImage: url,
+            message: postMessage,
+            likes: [],
+            userPhotoURL: currentUserData.photoURL,
+          });
         })
+        .then(() => {
+          location.assign("#/wall");
+        });
+    }
+  });
 
   return divNewPost;
-}
+};
