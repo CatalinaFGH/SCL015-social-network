@@ -1,6 +1,8 @@
+import { editPost } from "./templateEditPost.js";
 export const wall = () => {
   const divWall = document.createElement("div");
   divWall.setAttribute("CLASS", "templateWall");
+  divWall.setAttribute("ID", "templateWall");
   const viewWall = `
 
     <!-- Header fijo -->
@@ -61,7 +63,7 @@ export const wall = () => {
   let currentUserData = firebase.auth().currentUser;
   const uid = currentUserData.uid;
   const newPostBtn = divWall.querySelector("#newPostButton");
-  // let docID = doc.id;
+  
   // firestore.collection('posts').doc(docID).get().then((doc) => {
   //   let data = doc.data();
   //   if (data.likes.includes(uid)) {
@@ -100,6 +102,7 @@ export const wall = () => {
         let post = document.createElement("DIV");
         let header = document.createElement("HEADER");
         let userPic = document.createElement("IMG");
+        let deletePost = document.createElement("IMG");
         let postImage = document.createElement("IMG");
         let footer = document.createElement("FOOTER");
         let divContent = document.createElement("DIV");
@@ -107,8 +110,7 @@ export const wall = () => {
         likeImage.innerHTML = heart;
         let imageSpan = document.createElement("SPAN");
         let commentImage = document.createElement("IMG");
-        let postMenuDiv = document.createElement("DIV");
-        let postMenu = document.createElement("IMG");
+        let editPost = document.createElement("IMG");
         let rowDiv = document.createElement("DIV");
         let postUserName = document.createElement("H2");
         let postDescription = document.createElement("P");
@@ -116,8 +118,11 @@ export const wall = () => {
         let divComments = document.createElement("DIV");
         let comments = document.createElement("P");
         post.setAttribute("class", "post");
+        headerUserName.setAttribute("class", "headerUserName");
         header.setAttribute("class", "postHeader");
         userPic.setAttribute("class", "postProfilePicture");
+        deletePost.setAttribute("src","img/deleteBtn.svg");
+        deletePost.setAttribute("class","delete-post");
         postImage.setAttribute("class", "imgPost");
         footer.setAttribute("class", "postFooter");
         divContent.setAttribute("class", "rowDiv");
@@ -127,9 +132,9 @@ export const wall = () => {
         commentImage.setAttribute("class", "commentBtn");
         commentImage.setAttribute("id", "commentBtn");
         commentImage.setAttribute("src", "img/commentBtn.svg");
-        postMenu.setAttribute("class", "postMenu");
-        postMenu.setAttribute("id", "postMenu");
-        postMenu.setAttribute("src", "img/postMenu.svg");
+        editPost.setAttribute("class", "postMenu");
+        editPost.setAttribute("id", "postMenu");
+        editPost.setAttribute("src", "img/editBtn.svg");
         postUserName.setAttribute("class", "postUserName");
         postDescription.setAttribute("class", "postComment");
         comments.setAttribute("class", "viewComments");
@@ -142,42 +147,43 @@ export const wall = () => {
         divContent.appendChild(likeImage);
         divContent.appendChild(imageSpan);
         divContent.appendChild(commentImage);
-        divContent.appendChild(postMenuDiv);
-        postMenuDiv.appendChild(postMenu);
+        divContent.appendChild(editPost);
         footer.appendChild(rowDiv);
         rowDiv.appendChild(postUserName);
         rowDiv.appendChild(postDescription);
         footer.appendChild(divComments);
         divComments.appendChild(comments);
-        userPic.src = doc.data().userPhotoURL
+        userPic.src = doc.data().userPhotoURL;
         headerUserName.innerHTML = doc.data().userName;
         header.appendChild(userPic);
         header.appendChild(headerUserName);
+        header.appendChild(deletePost);
         postImage.src = doc.data().postImage;
         postUserName.innerHTML = doc.data().userName;
         postDescription.innerHTML = doc.data().message;
         comments.innerHTML = "Ver comentarios";
         imageSpan.innerHTML = doc.data().likes.length;
-        postMenu.onclick = function () {
-          console.log("holaa")
-          let dropdown = "";
-          
-          if (dropdown === "") {
-            console.log("hola")
-            menuPost.innerHTML = 
-              ` <div id="myDropdown" class="dropdown-content">
-              <a href="#home">Home</a>
-              <a href="#about">About</a>
-              <a href="#contact">Contact</a>
-            </div>
-                                `
-          postMenuDiv.appendChild(menuPost)
-          }
-          else if (menuPost.classList.includes("menuPost")) {
-            console.log("adios")
-            menuPost.innerHTML = "";
-            divContent.appendChild(menuPost)
-          }};
+        deletePost.onclick = function(){
+          let docID = doc.id;
+            firestore.collection('posts').doc(docID).delete().then(() => {
+         }).catch((error) => {
+             console.error("Error removing document: ", error);
+         })
+        }
+        editPost.onclick = function () {
+          let docID = doc.id;
+          let message = doc.data().message
+          let postImage = doc.data().postImage;
+          console.log("editar");
+          redireccionar(docID, message, postImage);
+
+      };
+
+      commentImage.onclick = function(){
+        console.log("¡funciona!")
+        location.assign("#/newComment");
+      }
+      
         likeImage.onclick = function () {
           let docID = doc.id;
           likeUpdate(docID, likeImage);
@@ -228,6 +234,11 @@ export const wall = () => {
     location.assign("#/newPost");
   })
 
+  const redireccionar = (docID, message, postImage) => {
+    const root = document.getElementById("root");
+    root.innerHTML = "";
+    root.appendChild(editPost(docID, message, postImage));
+  }
 
   return divWall;
 };

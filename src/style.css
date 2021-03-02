@@ -364,6 +364,11 @@ header{
     margin-left: 5%;
 }
 
+.delete-post{
+  display:flex;
+  margin-left: 10vw;
+}
+
 /* menu desplegable */
 
 #check{
@@ -462,7 +467,6 @@ header{
   margin-top: -65px;
 
 }
-
 /* ----------------------------------------- */
 .fixedFooter{
     padding-top: 1%;
@@ -524,6 +528,9 @@ height: auto;
   align-items: center;
 }
 
+.headerUserName{
+  width:67%;
+}
 
 .postFooter{
   padding-left: 4%;
@@ -575,6 +582,55 @@ height: 17px;
 .commentBtn{
   margin-right: 70%;
 }
+
+/* Página de escribir un comentario */
+
+.templateComment{
+  font-family: Roboto;
+  
+}
+
+.newComentContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.newCommentTextInput{
+  font-family: Roboto;
+  background: #FEFEFE;
+  border: 1px solid #B9F2D7;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 4vh;
+  margin-top: 4vh;
+  padding-top: 1vh;
+  padding-left: 2vw;
+  outline: none;
+}
+
+.commentButton{
+  font-family: Roboto;
+  background: #F2BAC9;
+  border-radius: 5px;
+  padding: 2vh 4vw 2vh 4vw;
+  border: none;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  box-shadow: 0px 4px 3px #999;
+  outline: none;
+  letter-spacing: 0.05em;
+
+}
+
+
+
+
+
+
+
+
 
 /* pagina crear perfil */
 .createProfile{
@@ -822,7 +878,8 @@ height: 17px;
     justify-content: space-evenly;
     margin-top: 4vh;
   }
-  
+
+
 /* pagina nuevo post */
 
 .templateNewPost{

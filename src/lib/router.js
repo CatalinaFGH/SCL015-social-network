@@ -6,6 +6,7 @@ import { newProfile } from "./view/templateCreateProfile.js";
 import { profile } from "./view/templateProfile.js";
 import { newPost } from "./view/templateNewPost.js";
 import { map } from "./view/templateMap.js";
+import { comment } from "./view/templateNewComment.js";
 
 
 
@@ -32,6 +33,9 @@ export const changeRouter = (hash) => {
         return showTemplate(hash);
     }
     else if (hash === '#/map') {
+        return showTemplate(hash);
+    }
+    else if (hash === '#/newComment') {
         return showTemplate(hash);
     }
     else {
@@ -65,6 +69,9 @@ export const showTemplate = (hash) => {
     }
     else if (hash === '#/map') {
         containerRoot.appendChild(map());
+    }
+    else if (hash === '#/newComment') {
+        containerRoot.appendChild(comment());
     }
     else { 
         containerRoot.innerHTML = "la página no existe";
