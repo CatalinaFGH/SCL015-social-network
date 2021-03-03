@@ -11,10 +11,12 @@ export const resetPassword = () => {
                  <div class="inputContainer">
                     <input type="text" id="resetEmail" class="loginInput" required>
                     <span class="loginTextInput">Email</span>
+                    <h3 id="alertMessage" class="alert-message"></h3>
                  </div>
 
                  <button class="resetPasswordButton" id="resetPasswordBtn">Restablecer</button>
                  <a class="backButton" id="goBackButton" href="#/">Volver</a>
+                 
 
                  </div>`;
 
@@ -23,6 +25,7 @@ export const resetPassword = () => {
   //Variables globales a utilizar
   const resetPasswordWithEmail = divReset.querySelector("#resetPasswordBtn");
   const toLogin = divReset.querySelector("#goBackButton");
+  let alertMessage = divReset.querySelector("#alertMessage");
   
   //función para enviar correo para reestablecer la contraseña
   resetPasswordWithEmail.addEventListener("click", () => {
@@ -31,16 +34,19 @@ export const resetPassword = () => {
     auth
       .sendPasswordResetEmail(emailAddress)
       .then(function () {
-        alert("Enviamos un correo para restablecer tu contraseña");
+      alertMessage.innerHTML="";
+      alertMessage.innerHTML+="Enviamos un correo para restablecer tu contraseña";
       })
       .catch(function (error) {
         if (error.message === "The email address is badly formatted.") {
-          alert("por favor ingresa un correo valido");
+          alertMessage.innerHTML="";
+          alertMessage.innerHTML+="por favor ingresa un correo válido";
         } else if (
           error.message ===
           "There is no user record corresponding to this identifier. The user may have been deleted."
         ) {
-          alert("correo no registrado");
+          alertMessage.innerHTML="";
+          alertMessage.innerHTML+="correo no registrado";
         }
 
         console.log(error);

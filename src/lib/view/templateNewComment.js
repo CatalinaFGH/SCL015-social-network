@@ -10,7 +10,7 @@ export const comment = (docID) => {
            <!-- contenido del nuevo comentario y los comentarios anteriores -->
                <main id="newComment" class="comment">
 
-                   <div id="commentsListContent"></div>
+                   <div id="commentsListContent" class="commentsListContent"></div>
 
                       <div class="newComentContainer">
                           <textarea id="newCommentText" class="newCommentTextInput" rows="4" cols="50" placeholder="Escribe aquí tu comentario.."></textarea>
@@ -20,7 +20,7 @@ export const comment = (docID) => {
 
                 </main>
       
-                    <footer class="fixedFooter"></footer>`;
+            <footer class="fixedFooter"></footer>`;
 
   divComment.innerHTML = viewComment;
 
@@ -41,7 +41,7 @@ export const comment = (docID) => {
     location.assign("#/wall");
   });
 
-//   funcion para imprimor lista de comentarios de post
+//Función para imprimir lista de comentarios de post
   firestore
     .collection("posts")
     .doc(docID)
@@ -56,8 +56,6 @@ export const comment = (docID) => {
             <div class="input-content">
                 <div class="input-nameHour">
                     <span class="input-message-username" id="inputMessage">${doc.data().profileName}</span>
-                </div>
-                <div class="input-time">
                     <span id="inputTime">${doc.data().time}</span>
                 </div>
                 <div class="message-box" id="messageBox">
@@ -69,7 +67,6 @@ export const comment = (docID) => {
       });
 
     //funcion para añadir comentario a post
-    
       sendMessage.addEventListener("click", () => {
         if (newMessage.value !== "") {
           let d = new Date();
@@ -85,8 +82,24 @@ export const comment = (docID) => {
           });
           newMessage.value = "";
         }
+
+        firestore
+        .collection("posts")
+        .doc(docID)
+        .get()
+        .then((doc) => {
+          let data = doc.data();
+            data.comments.push(uid);
+            firestore.collection("posts").doc(docID).update({
+              comments: data.comments,
+            });
+          
+        });
+    
       });
-    });
+      });
+      
+
 
   return divComment;
 };

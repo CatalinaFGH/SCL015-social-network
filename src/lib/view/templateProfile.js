@@ -3,7 +3,7 @@ export const profile = () => {
  const viewProfile =
  
        `<header class="headerProfile" id="header">
-           <div class= "profileTitle"><h3>Crear Perfil</h3></div>
+           <div class= "profileTitle"><h3>Mi Perfil</h3></div>
         </header>
     
         <main class="newProfileContent">
@@ -22,7 +22,8 @@ export const profile = () => {
         </main>
         
         <div class="btnsProfileContainer">
-           <button class="profileButton"><a href="#/createProfile" class="link">EDITAR</a></button>  <button class="profileButton" id="profileButton2"><a href="#/wall" class="link">MURO</a></button>
+           <button class="profileButton"><a href="#/createProfile" class="link">EDITAR</a></button>
+           <button class="profileButton" id="profileButton2"><a href="#/wall" class="link2">MURO</a></button>
         </div>
 
         <footer class="fixedFooter"></footer>`;

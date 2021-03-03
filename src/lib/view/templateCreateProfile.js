@@ -12,6 +12,7 @@ export const newProfile = () => {
       
             <div class="custom-input-file">
                <input type="file" id="imgFile" class="input-file" value="">
+               +
             </div>
       
             <div class="scroll-container">

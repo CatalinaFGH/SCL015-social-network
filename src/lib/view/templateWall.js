@@ -27,14 +27,6 @@ export const wall = () => {
           </div>
         </ul>    
       </div>
-      <div class="menuSecondSection">
-        <ul>
-          <div class="homeUserIconContainer">
-          <img src="img/perfilIcon.svg" class="homeUserIcon">
-          <li id="showProfileBtn">Perfil</li>
-          </div>
-        </ul>
-      </div>
       <div class="menuThirdSection">
         <ul>
         <div class="homeLogoutIconContainer">
@@ -51,7 +43,7 @@ export const wall = () => {
 <footer class="fixedFooter">
   <img src="img/MakeupStoreMap.svg" alt="Mapa" id="viewMap">
   <img src="img/addPost.svg" alt="Nuevo Post" class="newPostBtn" id="newPostButton">
-  <img src="img/Search.svg" alt="Buscar">
+  <img src="img/perfilIcon.svg" alt="Perfil" id="showProfileBtn" class="show-profile-btn">
 </footer>`;
 
   divWall.innerHTML = viewWall;
@@ -62,7 +54,7 @@ export const wall = () => {
   const uid = currentUserData.uid;
   const newPostBtn = divWall.querySelector("#newPostButton");
 
-  //función para imprimir informacion del usuario en los posts
+  //función para imprimir información del usuario en los posts
   firestore
     .collection("users")
     .doc(uid)
@@ -81,7 +73,7 @@ export const wall = () => {
       console.log("Error getting document:", error);
     });
 
-  //función para ordenar los post por hora de publicación y crear el contenido de los post
+  //función para ordenar los posts por hora de publicación y crear el contenido de los posts
   firestore
     .collection("posts")
     .orderBy("date", "desc")
@@ -116,6 +108,8 @@ export const wall = () => {
         let headerUserName = document.createElement("P");
         let divComments = document.createElement("DIV");
         let comments = document.createElement("P");
+        let commentSpan = document.createElement("SPAN");
+        let commentSpanDiv = document.createElement("DIV");
         //agregar atributos de clase e id para manupular estilo y eventos
         post.setAttribute("class", "post");
         headerUserName.setAttribute("class", "headerUserName");
@@ -123,14 +117,15 @@ export const wall = () => {
         userPic.setAttribute("class", "postProfilePicture");
         postImage.setAttribute("class", "imgPost");
         footer.setAttribute("class", "postFooter");
-        divContent.setAttribute("class", "rowDiv");
+        divContent.setAttribute("class", "footerRowDiv");
         divLike.setAttribute("class", "likeDiv");
         likeImage.setAttribute("class", "likeHeart");
         imageSpan.setAttribute("class", "countSpan");
-        imageSpan.setAttribute("id", "count");
+        commentSpanDiv.setAttribute("class", "commentCount")
         commentImage.setAttribute("class", "commentBtn");
         commentImage.setAttribute("id", "commentBtn");
         commentImage.setAttribute("src", "img/commentBtn.svg");
+        commentSpan.setAttribute("class", "commentCountSpan");
         postUserName.setAttribute("class", "postUserName");
         postDescription.setAttribute("class", "postComment");
         comments.setAttribute("class", "viewComments");
@@ -143,8 +138,10 @@ export const wall = () => {
         footer.appendChild(divContent);
         divLike.appendChild(likeImage);
         divLike.appendChild(imageSpan);
+        commentSpanDiv.appendChild(commentSpan)
         divContent.appendChild(divLike);
         divContent.appendChild(commentImage);
+        divContent.appendChild(commentSpanDiv);
         footer.appendChild(rowDiv);
         rowDiv.appendChild(postUserName);
         rowDiv.appendChild(postDescription);
@@ -159,13 +156,22 @@ export const wall = () => {
         postDescription.innerHTML = doc.data().message;
         comments.innerHTML = "Ver comentarios";
         imageSpan.innerHTML = doc.data().likes.length;
-        //función para mostrar likes al usuario
+        commentSpan.innerHTML = doc.data().comments.length;
+        //función para mostrar likes al usuario (a partir de 1 se muestran los números)
         if (doc.data().likes.length <= 0) {
           imageSpan.style.display = "none";
         } else {
           imageSpan.style.display = "block";
         }
-       //función para eliminar post del usuario activo
+   
+        //función para mostrar la cantidad de comentarios al usuario (a partir de 1 se muestran los números)
+        if (doc.data().comments.length <= 0) {
+          commentSpan.style.display = "none";
+        } else {
+          commentSpan.style.display = "block";
+        }
+
+        //función para eliminar post del usuario activo
         if (doc.data().userID === uid) {
           let deletePost = document.createElement("IMG");
           deletePost.setAttribute("src", "img/deleteBtn.svg");
@@ -197,7 +203,7 @@ export const wall = () => {
             let docID = doc.id;
             let message = doc.data().message;
             let postImage = doc.data().postImage;
-            redireccionar(docID, message, postImage);
+            redirection(docID, message, postImage);
           };
         }
 
@@ -208,8 +214,15 @@ export const wall = () => {
           root.innerHTML = "";
           root.appendChild(comment(docID));
         };
+        //función para redireccionar a comentarios
+        comments.onclick = function () {
+          let docID = doc.id;
+          const root = document.getElementById("root");
+          root.innerHTML = "";
+          root.appendChild(comment(docID));
+        };
 
-        //función para dar me gusta
+        //función para dar me gusta (de los likes)
         likeImage.onclick = function () {
           let docID = doc.id;
           likeUpdate(docID, likeImage);
@@ -265,13 +278,13 @@ export const wall = () => {
       });
   });
   
-  //Función que dirije a crear un nuevo post
+  //Función que dirije a crear un nuevo post (evento al icono)
   newPostBtn.addEventListener("click", () => {
     location.assign("#/newPost");
   });
 
   //Función para enviar a editar post
-  const redireccionar = (docID, message, postImage) => {
+  const redirection = (docID, message, postImage) => {
     const root = document.getElementById("root");
     root.innerHTML = "";
     root.appendChild(editPost(docID, message, postImage));

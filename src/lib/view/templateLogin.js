@@ -13,10 +13,12 @@ export const login = () => {
       <div class="loginEmailInputContainer">
           <input type="password" id="loginPassword" class="loginInput" required>
           <span class= "loginTextInput">Contraseña</span>
-          <div class="eyeImageContainer">
+          <div class="eyeImageContainer" id="loginContainer">
               <img src= "img/eye-open.svg" id="eye" class= "eyeImage">
           </div>
       </div>
+      
+      <h3 id="alertMessage" class="alert-login-message"></h3>
 
       <div class="loginButtonsContainer">
           <button id="logInBtn" class="loginButtonStyle">Inicia Sesión</button>
@@ -37,6 +39,7 @@ export const login = () => {
 
   divLogin.innerHTML = viewLogin;
 
+// funcion para iniciar sesión con Google
 const googleLoginBtn= divLogin.querySelector("#googleBtn"); 
 googleLoginBtn.addEventListener("click", () => {
 loginWithGoogle();
@@ -61,12 +64,13 @@ loginWithEmail.addEventListener("click",() =>{
           location.assign("#/createProfile")}
         })}
     else if (userVerified === false) {
-    alert("Por favor verifica tu correo antes de ingresar");
+      divLogin.querySelector("#alertMessage").innerHTML="";
+      divLogin.querySelector("#alertMessage").innerHTML+="Por favor verifica tu correo antes de ingresar";
             }
           });
         });
 
-  // funcion para ocultar y mostrar contraseña al hacer click en icocno de ojo
+// función para ocultar y mostrar contraseña al hacer click en icono de ojo
 let passwordInput = divLogin.querySelector("#loginPassword");
 let eyeIcon = divLogin.querySelector("#eye");
 

@@ -118,6 +118,7 @@ export const newPost = () => {
             postImage: url,
             message: postMessage,
             likes: [],
+            comments: [],
             userPhotoURL: currentUserData.photoURL,
           });
         })

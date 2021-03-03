@@ -9,7 +9,7 @@ export const editPost = (docID, message, postImage) => {
           <img src="img/backBtn.svg" alt="volver" id="backBtn" class="backBtn">Editar Publicación
       </div>
 
-      <!-- contenido del nuevo post -->
+      <!-- contenido del post a editar-->
       <main id="newPostContentDiv" class="newPostDiv">
           <div id="newPostUserInfo" class="newPostUserInfo">
               <img src="" alt="foto de perfil" id="editPostProfilePic" class="newPostProfileImg">
@@ -26,15 +26,15 @@ export const editPost = (docID, message, postImage) => {
       </main>
       
       <footer class="fixedFooter">
-      </footer>
-      `;
+      </footer>`;
+
   divEditPost.innerHTML = viewEditPost;
 
   //Variables globales a utilizar
   const firestore = firebase.firestore();
   const saveChangesBtn = divEditPost.querySelector("#saveChangesBtn");
 
-  //función para volver al muro principal
+  //función para volver al muro principal (evento al icono)
   const backToWall = divEditPost.querySelector("#backBtn");
   backToWall.addEventListener("click", () => {
     const root = document.getElementById("root");
@@ -42,19 +42,15 @@ export const editPost = (docID, message, postImage) => {
     root.appendChild(wall());
   });
 
-  //función para imprimir en pantalla informacion del usuario
+  //función para imprimir en pantalla información del usuario
   firestore
     .collection("posts")
     .doc(docID)
     .get()
     .then(function (doc) {
       if (doc.exists) {
-        divEditPost.querySelector(
-          "#editPostUserName"
-        ).innerHTML = doc.data().userName;
-        divEditPost.querySelector(
-          "#editPostProfilePic"
-        ).src = doc.data().userPhotoURL;
+        divEditPost.querySelector("#editPostUserName").innerHTML = doc.data().userName;
+        divEditPost.querySelector("#editPostProfilePic").src = doc.data().userPhotoURL;
       } else {
         divEditPost.log("No such document!");
       }

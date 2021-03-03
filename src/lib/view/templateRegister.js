@@ -16,30 +16,38 @@ export const register = () => {
                           </div>
 
                           <div class="inputContainer">
-                            <input type="text" id="thePassword" class="loginInput" required>
+                            <input type="password" id="thePassword" class="loginInput" required>
                             <span class="loginTextInput">Contraseña</span>
                           </div>
 
+                          <div class="eyeImageContainer" id="loginContainer">
+                             <img src= "img/eye-open.svg" id="eye2" class= "eyeImage">
+                          </div>
+                         
+                          <h3 id="alertRegisterOKMessage" class="alertRegisterMessage"></h3>
+                          <h3 id="alertRegisterMessage" class="alert-message"></h3>
+                          <h3 id="alertRegisterNOTMessage" class="alert-message"></h3>
+
                          <button id="registerBtn" class="registerBtn" href="#/register">Registrarse</button>
-                           <a id="toGoBackButton" class="backRegisterButton" href="#/">Volver</a><br>
-                    `;
+                           <a id="toGoBackButton" class="backRegisterButton" href="#/">Volver</a><br>`;
 
   divRegister.innerHTML = viewRegister;
+  
+  let alertRegisterMessage = divRegister.querySelector("#alertRegisterMessage");
+  let alertRegisterOKMessage = divRegister.querySelector("#alertRegisterOKMessage");
+  let alertRegisterNOTMessage = divRegister.querySelector("#alertRegisterNOTMessage");
 
-  // variables globales a utilizar
-  const user = firebase.auth().currentUser;
+  //Función para registrarse con correo y contraseña
   const registerBtn = divRegister.querySelector("#registerBtn");
-  let email = divRegister.querySelector("#theEmail").value;
-  let password = divRegister.querySelector("#thePassword").value;
-  let userName = divRegister.querySelector("#theUserName").value;
-  const backToLogin = divRegister.querySelector("#toGoBackButton");
-
-  // funcion para registrarse con correo y contraseña
   registerBtn.addEventListener("click", () => {
+    let email = divRegister.querySelector("#theEmail").value;
+    let password = divRegister.querySelector("#thePassword").value;
+    let userName = divRegister.querySelector("#theUserName").value;
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
+        const user = firebase.auth().currentUser;
         user
           .updateProfile({
             displayName: userName,
@@ -51,9 +59,9 @@ export const register = () => {
         user
           .sendEmailVerification()
           .then(function () {
-            alert(
-              "Te hemos enviado un correo con el link de verificación, para iniciar sesión recuerda verificar tu correo"
-            );
+            alertRegisterOKMessage.innerHTML="";
+            alertRegisterOKMessage.innerHTML+="Te hemos enviado un correo con el link de verificación, para iniciar sesión recuerda verificar tu correo";
+            
           })
           .catch(function (error) {
             console.log("ups, salio mal");
@@ -65,18 +73,33 @@ export const register = () => {
           error.message ===
           "The email address is already in use by another account."
         ) {
-          alert("Este correo ya esta en uso");
+          alertRegisterMessage.innerHTML="";
+          alertRegisterMessage.innerHTML+="Este correo ya está en uso";
         }
-        if (error.message === "The email address is badly formatted.") {
-          alert("Ingrese un formato de correo valido");
+        else if (error.message === "The email address is badly formatted.") {
+          alertRegisterMessage.innerHTML="";
+          alertRegisterMessage.innerHTML+="Ingrese un formato de correo válido";
         }
       });
   });
 
-  // funcion para volver a pagina de login
+  //Función para volver a la página de login
+  const backToLogin = divRegister.querySelector("#toGoBackButton");
   backToLogin.addEventListener("click", () => {
     location.assign("#");
   });
+
+  //Función para ocultar y mostrar contraseña al hacer click en icono de ojo
+    let passwordInput = divRegister.querySelector("#thePassword");
+    let eyeIcon = divRegister.querySelector("#eye2");
+  eyeIcon.addEventListener("click", ()=>{
+    if(passwordInput.type === "password"){
+      passwordInput.type = "text";
+      eyeIcon.src = "img/eye-closed.svg";
+    }else{
+      passwordInput.type = "password";
+      eyeIcon.src = "img/eye-open.svg";
+  }});
 
   return divRegister;
 };
