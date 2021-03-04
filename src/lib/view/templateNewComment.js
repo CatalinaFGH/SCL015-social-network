@@ -2,7 +2,9 @@ import { wall } from "./templateWall.js";
 export const comment = (docID) => {
   const divComment = document.createElement("DIV");
   divComment.setAttribute("CLASS", "templateComment");
-  const viewComment = `<!-- Header fijo -->
+  const viewComment = `
+  <div class="desktopMain">
+  <!-- Header fijo -->
              <div class="newPostTitle" id="contentMenu">
                 <img src="img/backBtn.svg" alt="volver" id="theBackButton" class="backBtn">Comentarios
              </div>
@@ -20,7 +22,8 @@ export const comment = (docID) => {
 
                 </main>
       
-            <footer class="fixedFooter"></footer>`;
+            <footer class="fixedFooter"></footer>
+            <div>`;
 
   divComment.innerHTML = viewComment;
 

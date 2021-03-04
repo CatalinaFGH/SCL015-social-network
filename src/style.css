@@ -1285,6 +1285,41 @@ font-weight: 800;
     margin-right: 5vh;
 }
 
+/* Página de escribir un comentario versión desktop */
+.templateComment {
+    font-family: Roboto;
+}
+.newComentContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.newCommentTextInput {
+    font-family: Roboto;
+    background: #FEFEFE;
+    border: 1px solid #B9F2D7;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 90%;
+    margin-bottom: 4vh;
+    margin-top: 4vh;
+    padding-top: 1vh;
+    padding-left: 2vw;
+    outline: none;
+}
+.commentButton {
+    font-family: Roboto;
+    background: #F2BAC9;
+    border-radius: 5px;
+    padding: 2vh 4vw 2vh 4vw;
+    border: none;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    box-shadow: 0px 4px 3px #999;
+    outline: none;
+    letter-spacing: 0.05em;
+}
+
 /* Página crear perfil versión desktop */
 .createProfile {
     background-color: #F2BAC9;
@@ -1521,7 +1556,24 @@ font-weight: 800;
     width: 8vw;
 }
 
+/* Página Mapa versión desktop*/
+.mapDiv{
+    margin-top: 5vh;
+}
+.newPostTitle{
+    display: flex;
 
+}
+
+#backButton{
+    height: 6vh;
+    width: 6vw;
+    margin-left: -11vw;
+}
+.mapTitle{
+    margin-right: 5vw;
+    font-size: 28px;
+}
 
 
 
