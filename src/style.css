@@ -1486,6 +1486,40 @@ font-weight: 800;
     margin-top: 2vh;
 }
 
+/* Pagina perfil desktop */
+
+.profileContent {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: rgba(0, 0, 0, 0.87);
+    margin-bottom: 2vh;
+}
+.profileContentDiv {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 2vh;
+}
+.loginButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnsProfileContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4vh;
+}
+#profileButton {
+    width: 8vw;
+    margin-right: 3vw;
+}
+#profileButton2 {
+    width: 8vw;
+}
 
 
 

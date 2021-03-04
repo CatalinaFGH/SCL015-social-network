@@ -1,8 +1,9 @@
 export const profile = () => {
  const divProfile = document.createElement("DIV");
+ divProfile.setAttribute("CLASS", "createProfile");
  const viewProfile =
- 
-       `<header class="headerProfile" id="header">
+       ` <div class="desktopMain">
+       <header class="headerProfile" id="header">
            <div class= "profileTitle"><h3>Mi Perfil</h3></div>
         </header>
     
@@ -22,11 +23,12 @@ export const profile = () => {
         </main>
         
         <div class="btnsProfileContainer">
-           <button class="profileButton"><a href="#/createProfile" class="link">EDITAR</a></button>
+           <button class="profileButton" id="profileButton"><a href="#/createProfile" class="link">EDITAR</a></button>
            <button class="profileButton" id="profileButton2"><a href="#/wall" class="link2">MURO</a></button>
         </div>
 
-        <footer class="fixedFooter"></footer>`;
+        <footer class="fixedFooter"></footer>
+        </div>`;
 
  divProfile.innerHTML = viewProfile;
 
