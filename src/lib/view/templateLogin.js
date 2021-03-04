@@ -3,7 +3,9 @@ import { loginWithGoogle } from "../loginGoogleFirebase.js";
 export const login = () => {
   const divLogin = document.createElement("div");
   divLogin.setAttribute("CLASS", "templateLogin");
-  const viewLogin = `<img src="img/logo.png" alt="Beauty Tips Logo" class="logoLogin">
+  const viewLogin = `
+  <div class="desktopLogin">
+   <img src="img/logo.png" alt="Beauty Tips Logo" class="logoLogin">
 
       <div class="loginInputsContainer">
           <input type="text" id="loginEmail" class="loginInput" required>
@@ -35,53 +37,58 @@ export const login = () => {
       <div class="loginLinksContainer">
           <a href="#/resetPassword" class="loginLinks">¿Olvidaste tu contraseña?</a>
           <p class="loginLinks">¿Eres nueva?<a href="#/register" class="registerLink"> Regístrate</a></p>
-      </div>`;
+      </div>
+   </div>`;
 
   divLogin.innerHTML = viewLogin;
 
-// funcion para iniciar sesión con Google
-const googleLoginBtn= divLogin.querySelector("#googleBtn"); 
-googleLoginBtn.addEventListener("click", () => {
-loginWithGoogle();
-})
+  // funcion para iniciar sesión con Google
+  const googleLoginBtn = divLogin.querySelector("#googleBtn");
+  googleLoginBtn.addEventListener("click", () => {
+    loginWithGoogle();
+  })
 
-// funcion para iniciar sesión con email y contraseña
-const loginWithEmail = divLogin.querySelector("#logInBtn");
-loginWithEmail.addEventListener("click",() =>{
+  // funcion para iniciar sesión con email y contraseña
+  const loginWithEmail = divLogin.querySelector("#logInBtn");
+  loginWithEmail.addEventListener("click", () => {
     let email = document.getElementById("loginEmail").value;
     let password = document.getElementById("loginPassword").value;
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((user) => {
-    var user = firebase.auth().currentUser;
-    const userVerified = user.emailVerified;
-    const firestore = firebase.firestore();
-    const uid = user.uid;
-    if(userVerified === true) { 
-      firestore.collection('users').doc(uid).get().then(function(doc){
+      .then((user) => {
+        var user = firebase.auth().currentUser;
+        const userVerified = user.emailVerified;
+        const firestore = firebase.firestore();
+        const uid = user.uid;
+        if (userVerified === true) {
+          firestore.collection('users').doc(uid).get().then(function (doc) {
             if (doc.exists) {
-              location.assign("#/wall")}
-              else{ 
-          location.assign("#/createProfile")}
-        })}
-    else if (userVerified === false) {
-      divLogin.querySelector("#alertMessage").innerHTML="";
-      divLogin.querySelector("#alertMessage").innerHTML+="Por favor verifica tu correo antes de ingresar";
+              location.assign("#/wall")
             }
-          });
-        });
+            else {
+              location.assign("#/createProfile")
+            }
+          })
+        }
+        else if (userVerified === false) {
+          divLogin.querySelector("#alertMessage").innerHTML = "";
+          divLogin.querySelector("#alertMessage").innerHTML += "Por favor verifica tu correo antes de ingresar";
+        }
+      });
+  });
 
-// función para ocultar y mostrar contraseña al hacer click en icono de ojo
-let passwordInput = divLogin.querySelector("#loginPassword");
-let eyeIcon = divLogin.querySelector("#eye");
+  // función para ocultar y mostrar contraseña al hacer click en icono de ojo
+  let passwordInput = divLogin.querySelector("#loginPassword");
+  let eyeIcon = divLogin.querySelector("#eye");
 
-eyeIcon.addEventListener("click", ()=>{
-  if(passwordInput.type === "password"){
-    passwordInput.type = "text";
-    eyeIcon.src = "img/eye-closed.svg";
-  }else{
-    passwordInput.type = "password";
-    eyeIcon.src = "img/eye-open.svg";
-}});
+  eyeIcon.addEventListener("click", () => {
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      eyeIcon.src = "img/eye-closed.svg";
+    } else {
+      passwordInput.type = "password";
+      eyeIcon.src = "img/eye-open.svg";
+    }
+  });
 
-return divLogin;
+  return divLogin;
 };
