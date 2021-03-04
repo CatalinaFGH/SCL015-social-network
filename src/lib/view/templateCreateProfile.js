@@ -1,7 +1,8 @@
 export const newProfile = () => {
   const divNewProfile = document.createElement("div");
   divNewProfile.setAttribute("CLASS", "createProfile");
-  const viewNewProfile = ` <header class="headerProfile" id="header">
+  const viewNewProfile = ` <div class="desktopMain">
+  <header class="headerProfile" id="header">
           <div class= "profileTitle">
               <h3>Crear Perfil</h3>
           </div>
@@ -40,6 +41,7 @@ export const newProfile = () => {
 
         <footer class="fixedFooter">
         </footer>
+        </div>
       `;
 
   divNewProfile.innerHTML = viewNewProfile;
