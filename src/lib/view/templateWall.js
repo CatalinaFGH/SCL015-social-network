@@ -47,7 +47,16 @@ export const wall = () => {
 </footer>`;
 
   divWall.innerHTML = viewWall;
-  firestore
+    //Variables globales a utilizar
+    const firestore = firebase.firestore();
+    let currentUserData = firebase.auth().currentUser;
+    const uid = currentUserData.uid;
+    const newPostBtn = divWall.querySelector("#newPostButton");
+  
+    //función para imprimir información del usuario en los posts
+    firestore
+    .collection("users")
+    .doc(uid)
     .get()
     .then(function (doc) {
       if (doc.exists) {
