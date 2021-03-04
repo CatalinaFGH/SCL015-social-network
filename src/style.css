@@ -54,14 +54,17 @@ table {
         background-image: url(img/fondo.svg);
         width: 100%;
         height: 100vh;
-        justify-content: center;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        display: flex;
+        background-attachment: fixed;
+    }
+    .desktopLogin{
+        display:flex;
+        justify-content: center;
         align-items: center;
         flex-direction: column;
-        background-attachment: fixed;
+        margin-top: 16vh;
     }
     .logoLogin {
         margin-bottom: 4vh;
@@ -220,13 +223,9 @@ table {
         background-image: url(img/fondo.svg);
         width: 100%;
         height: 100vh;
-        justify-content: center;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
     }
     .resetPasswordInfoContainer {
         display: flex;
@@ -285,13 +284,9 @@ table {
         background-image: url(img/fondo.svg);
         width: 100%;
         height: 100vh;
-        justify-content: center;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
     }
     .registerTitle {
         font-size: 18px;
@@ -968,7 +963,328 @@ table {
 
 
 /* Fin del formato mobile */
+/* Inicio del formato de escritorio (desktop) */
+@media screen and (min-width: 415px){
 
+    /* Pagína Login versión desktop*/
+.templateLogin {
+    background-image: url(img/fondo3.jpg);
+    width: 100%;
+    height: 100vh;
+    justify-content: flex-end;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-attachment: fixed;
+}
+
+.logoLogin {
+    margin-bottom: 4vh;
+    width: 12vw;
+}
+
+.inputsBigContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+.loginInput {
+    width: 30vw;
+    margin: auto;
+    display: flex;
+    padding: 10px;
+    border: 2px solid #ffd4df;
+    border-radius: 3.5px;
+}
+.loginTextInput {
+    position: relative;
+    top: -26px;
+    left: 9px;
+    letter-spacing: 0.05em;
+    color: #80868B;
+    pointer-events: none;
+    font-weight: bold;
+    transition: .3s;
+}
+.loginInput:focus {
+    outline: 2px;
+    border-radius: 3.5px;
+    border-color: #FE6E91;
+}
+.loginInput:focus+.loginTextInput, .loginInput:valid+.loginTextInput {
+    top: -47px;
+    left: 10px;
+    background: #ffffff;
+    color: #FE6E91;
+    border-radius: 3.5px;
+}
+.eyeImageContainer {
+    position: relative;
+    margin-top: -42px;
+    margin-left: 29vw;
+}
+.eyeImage {
+    width: 20px;
+    height: 20px;
+}
+.loginButtonsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+.loginButtonStyle {
+    background-color: #F2BAC9;
+    border-radius: 16px;
+    padding: 6px;
+    width: 15vw;
+    border: none;
+    outline: none;
+    font-family: roboto;
+    box-shadow: 0px 4px 3px #999;
+    letter-spacing: 0.05em;
+    font-size: 2vh;
+}
+.loginButtonStyle:hover {
+    background: #f79db5;
+}
+.loginButtonStyle:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+.alert-login-message{
+height: 1vh;
+font-size: 12.5px;
+color: rgba(240, 49, 49, 0.6);
+margin-top: 1vh;
+font-weight: 800;
+}
+
+.google-btn {
+    background-color: #ffd4df;
+    border: none;
+    outline: none;
+    padding: 6px;
+    font-family: roboto;
+    box-shadow: 0px 4px 3px #999;
+    margin-left: 20px;
+    margin-top: 10px;
+    width: 20vw;
+    font-size: 2vh;
+}
+.google-btn:hover {
+    background-color: #F2BAC9;
+}
+.google-btn:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+.googleImageContainer {
+    position: relative;
+    box-shadow: -2px 4px 3px #999;
+    margin-left: -20vw;
+    margin-top: -35px;
+    background-color: #ffd4df;
+    border-radius: 100%;
+    padding: 4px;
+    width: -20vw;
+}
+.googleImage {
+    width: 30px;
+}
+.loginLinksContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+.registerLink {
+    text-decoration: none;
+    color: #FE6E91;
+    font-size: 13px;
+    font-weight: bold;
+}
+.loginLinks {
+    text-decoration: none;
+    color: black;
+    padding: 4px;
+    font-size: 13px;
+}
+.loginLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+.o {
+    padding: 10px;
+}
+.lines {
+    width: 130px;
+}
+
+.desktopLogin{
+    background-color: #ffffff;
+    height: 100vh;
+    width: 45vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 10px 10px #FE6E91;
+}
+
+/* Página Restablecer contraseña versión desktop*/
+
+.templateResetPassword {
+    background-image: url(img/fondo3.jpg);
+    width: 100%;
+    height: 100vh;
+    justify-content: flex-end;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.resetPasswordInfoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.resetPasswordTitle {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    margin: 15px;
+}
+.resetPasswordParagraph {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.resetPasswordButton {
+    background-color: #F4F39A;
+    border-radius: 16px;
+    padding: 6px;
+    width: 135px;
+    border: none;
+    outline: none;
+    font-family: roboto;
+    box-shadow: 0px 4px 3px #999;
+    letter-spacing: 0.05em;
+    margin: 15px;
+}
+.resetPasswordButton:hover {
+    background: #f3f16a;
+}
+.resetPasswordButton:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+.backButton {
+    text-decoration: none;
+    font-size: 13px;
+    color: black;
+    font-weight: bold;
+}
+.alert-message{
+    height: 1vh;
+    font-size: 12.5px;
+    color: rgba(240, 49, 49, 0.6);
+    font-weight: 800;
+    margin-top: -1.7vh;
+    margin-left: 1.2vw;
+    }
+
+#resetEmail{
+    margin-top: -2vh;
+}
+
+#alertMessage{
+    margin-left: -0.1vw;
+}
+
+/* Página Registro versión desktop*/
+
+.templateRegister {
+    background-image: url(img/fondo3.jpg);
+    width: 100%;
+    height: 100vh;
+    justify-content: flex-end;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.registerTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    letter-spacing: 0.05em;
+}
+.registerBtn {
+    background-color: #f4f39a;
+    border-radius: 16px;
+    padding: 6px;
+    width: 115px;
+    border: none;
+    outline: none;
+    font-family: roboto;
+    box-shadow: 0px 4px 3px #999;
+    letter-spacing: 0.05em;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    text-decoration: none;
+}
+.registerBtn:hover {
+    background: #f3f16a;
+}
+.registerBtn:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+.backRegisterButton {
+    text-decoration: none;
+    font-size: 13px;
+    color: black;
+    font-weight: bold;
+}
+.alertRegisterMessage{
+    text-align: center;
+    height: 1vh;
+    font-size: 12.5px;
+    color: rgba(240, 49, 49, 0.6);
+    font-weight: 800;
+    margin-top: -1.7vh;
+    margin-left: 5vh;
+    margin-right: 5vh;
+}
+}
 
 
 

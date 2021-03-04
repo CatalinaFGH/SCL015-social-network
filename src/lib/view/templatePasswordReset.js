@@ -2,7 +2,8 @@ export const resetPassword = () => {
   const divReset = document.createElement("div");
   divReset.setAttribute("CLASS", "templateResetPassword");
   const viewReset = 
-              `<img src="img/logo.png" alt="Beauty Tips Logo">
+          ` <div class="desktopLogin">
+              <img src="img/logo.png" alt="Beauty Tips Logo">
     
                  <div class="resetPasswordInfoContainer">
                     <h2 class="resetPasswordTitle">Restablecer Contraseña</h2>
@@ -18,7 +19,8 @@ export const resetPassword = () => {
                  <a class="backButton" id="goBackButton" href="#/">Volver</a>
                  
 
-                 </div>`;
+                 </div>
+            </div>`;
 
   divReset.innerHTML = viewReset;
 

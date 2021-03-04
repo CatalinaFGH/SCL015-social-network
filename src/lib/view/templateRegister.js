@@ -2,7 +2,8 @@ export const register = () => {
   const divRegister = document.createElement("div");
   divRegister.setAttribute("CLASS", "templateRegister");
   const viewRegister = 
-                      ` <img src="img/logo.png" alt="Beauty Tips Logo">
+                      `<div class="desktopLogin"> 
+                      <img src="img/logo.png" alt="Beauty Tips Logo">
                           <h3 class="registerTitle">Regístrate</h3><br>
 
                           <div class="inputContainer">
@@ -29,7 +30,8 @@ export const register = () => {
                           <h3 id="alertRegisterNOTMessage" class="alert-message"></h3>
 
                          <button id="registerBtn" class="registerBtn" href="#/register">Registrarse</button>
-                           <a id="toGoBackButton" class="backRegisterButton" href="#/">Volver</a><br>`;
+                           <a id="toGoBackButton" class="backRegisterButton" href="#/">Volver</a><br>
+                           <div>`;
 
   divRegister.innerHTML = viewRegister;
   
