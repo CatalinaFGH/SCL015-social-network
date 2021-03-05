@@ -23,8 +23,8 @@ export const profile = () => {
         </main>
         
         <div class="btnsProfileContainer">
-           <button class="profileButton" id="profileButton"><a href="#/createProfile" class="link">EDITAR</a></button>
-           <button class="profileButton" id="profileButton2"><a href="#/wall" class="link2">MURO</a></button>
+           <button class="profileButton" id="profileButton">EDITAR</button>
+           <button class="profileButton" id="profileButton2">MURO</button>
         </div>
 
         <footer class="fixedFooter"></footer>
@@ -52,6 +52,15 @@ export const profile = () => {
      console.log("Error getting document:", error);
  });
  
+ let editButton = divProfile.querySelector("#profileButton");
+ editButton.addEventListener("click", () =>{
+     location.assign("#/createProfile");
+ });
+
+ let wallButton = divProfile.querySelector("#profileButton2");
+ wallButton.addEventListener("click", () =>{
+     location.assign("#/wall");
+ });
 
  return divProfile;
 }

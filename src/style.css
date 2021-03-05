@@ -588,6 +588,13 @@ table {
         outline: none;
         letter-spacing: 0.05em;
     }
+    .commentButton:hover {
+        background: #f79db5;
+    }
+    .commentButton:active {
+        transform: translateY(4px);
+        box-shadow: none;
+    }
     /* pagina crear perfil */
     .createProfile {
         display: flex;
@@ -959,6 +966,10 @@ table {
       .input-message-username{
        font-weight: 700;
       }
+
+    .mapTitle{
+        margin-right: 20vw;
+    }
 }
 
 
@@ -1568,12 +1579,15 @@ font-weight: 800;
 #backButton{
     height: 6vh;
     width: 6vw;
-    margin-left: -11vw;
 }
 .mapTitle{
     margin-right: 5vw;
     font-size: 28px;
+    margin-left: 5vw;
 }
+
+/* Página Nuevo Post desktop */
+
 
 
 
