@@ -3,6 +3,7 @@ export const editPost = (docID, message, postImage) => {
   const divEditPost = document.createElement("div");
   divEditPost.setAttribute("CLASS", "templateNewPost");
   const viewEditPost = `
+  <div class= "desktopMain">
   
       <!-- Header fijo -->
       <div class="newPostTitle" id="contentMenu">
@@ -26,7 +27,8 @@ export const editPost = (docID, message, postImage) => {
       </main>
       
       <footer class="fixedFooter">
-      </footer>`;
+      </footer>
+      <div>`;
 
   divEditPost.innerHTML = viewEditPost;
 
