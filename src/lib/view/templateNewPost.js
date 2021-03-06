@@ -2,7 +2,7 @@ export const newPost = () => {
   const divNewPost = document.createElement("div");
   divNewPost.setAttribute("CLASS", "templateNewPost");
   const viewNewPost = `
-  
+      <div class="desktopMain">
       <!-- Header fijo -->
       <div class="newPostTitle" id="contentMenu">
       <img src="img/backBtn.svg" alt="volver" id="backButton" class="backBtn">Nueva Publicación
@@ -37,6 +37,7 @@ export const newPost = () => {
       
   <footer class="fixedFooter">
   </footer>
+  </div>
   `;
   divNewPost.innerHTML = viewNewPost;
   
