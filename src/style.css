@@ -1710,6 +1710,12 @@ font-weight: 800;
     cursor: pointer;
 }
 
+/* Página editar post desktop */
+#backBtn{
+ margin-right: 4.5vw;
+ height: 6vh;
+ width: 6vw;
+}
 
 }
 
