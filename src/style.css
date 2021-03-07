@@ -44,7 +44,8 @@ table {
 /* Media query para darle las dimensiones de celular (formato mobile) */
 
 @media screen and (min-width: 320px) and (max-width: 414px) and (orientation: portrait) {
-    /* Página de inicio, de login     */
+
+    /* Página de inicio, de login VERSIÓN MOBILE  */
     .root {
         display: flex;
         flex-direction: column;
@@ -59,7 +60,7 @@ table {
         background-size: cover;
         background-attachment: fixed;
     }
-    .desktopLogin{
+    .desktopLogin {
         display:flex;
         justify-content: center;
         align-items: center;
@@ -144,15 +145,13 @@ table {
         transform: translateY(4px);
         box-shadow: none;
     }
-
-    .alert-login-message{
+    .alert-login-message {
     height: 1vh;
     font-size: 12.5px;
     color: rgba(240, 49, 49, 0.6);
     margin-top: 1vh;
     font-weight: 800;
     }
-
     .google-btn {
         background-color: #ffffff;
         border: none;
@@ -218,7 +217,8 @@ table {
     .lines {
         width: 130px;
     }
-    /* Página de restablecer contraseña */
+
+    /* Página de restablecer contraseña VERSIÓN MOBILE*/
     .templateResetPassword {
         background-image: url(img/fondo.svg);
         width: 100%;
@@ -271,15 +271,16 @@ table {
         color: black;
         font-weight: bold;
     }
-    .alert-message{
+    .alert-message {
         height: 1vh;
         font-size: 12.5px;
         color: rgba(240, 49, 49, 0.6);
         font-weight: 800;
         margin-top: -1.7vh;
         margin-left: 1.2vw;
-        }
-    /* Página Registro */
+    }
+
+    /* Página de Registro VERSIÓN MOBILE*/
     .templateRegister {
         background-image: url(img/fondo.svg);
         width: 100%;
@@ -322,7 +323,7 @@ table {
         color: black;
         font-weight: bold;
     }
-    .alertRegisterMessage{
+    .alertRegisterMessage {
         text-align: center;
         height: 1vh;
         font-size: 12.5px;
@@ -331,9 +332,9 @@ table {
         margin-top: -1.7vh;
         margin-left: 5vh;
         margin-right: 5vh;
-        
     }
-    /* Página principal, el muro */
+
+    /* Página principal, "el muro" VERSIÓN MOBILE*/
     .templateWall {
         background-color: #F3F7F9;
         width: 100%;
@@ -352,7 +353,8 @@ table {
         display: flex;
         margin-left: 10vw;
     }
-    /* menu desplegable */
+
+    /* menu desplegable VERSIÓN MOBILE*/
     #check {
         display: none;
     }
@@ -434,6 +436,7 @@ table {
         margin-top: -65px;
     }
     /* ----------------------------------------- */
+
     .fixedFooter {
         padding-top: 1%;
         height: 8%;
@@ -552,9 +555,9 @@ table {
     }
     .show-profile-btn{
         width: 45px;
-        
     }
-    /* Página de escribir un comentario */
+
+    /* Página de escribir un comentario VERSIÓN MOBILE*/
     .templateComment {
         font-family: Roboto;
     }
@@ -595,7 +598,8 @@ table {
         transform: translateY(4px);
         box-shadow: none;
     }
-    /* pagina crear perfil */
+
+    /* Página de crear perfil VERSIÓN MOBILE*/
     .createProfile {
         display: flex;
         flex-direction: column;
@@ -790,7 +794,8 @@ table {
         border-radius: 100%;
         margin-top: 2vh;
     }
-    /* pagina ver perfil */
+
+    /* Página de ver perfil VERSIÓN MOBILE*/
     .profileContent {
         font-family: Roboto;
         font-style: normal;
@@ -817,7 +822,8 @@ table {
         justify-content: space-evenly;
         margin-top: 4vh;
     }
-    /* pagina nuevo post */
+
+    /* Página de nuevo post VERSIÓN MOBILE*/
     .templateNewPost {
         font-family: Roboto;
     }
@@ -936,7 +942,8 @@ table {
         position: absolute;
         left: 1px;
     }
-    /* template new comment, donde se crean y se visualizan los comentarios */
+
+    /* Template new comment, donde se crean y se visualizan los comentarios VERSIÓN MOBILE*/
     .mainCommentsBox {
         display: flex;
         flex-direction: row;
@@ -967,17 +974,36 @@ table {
        font-weight: 700;
       }
 
+      /* Página del mapa VERSIÓN MOBILE */
+      .headerMap{
+        display: flex;
+        height: 55px;
+        align-items: center;
+        /* width: 34.89vw; */
+        justify-content: center;
+        font-size: 28px;
+    }
     .mapTitle{
+        padding-right: 27vw;
+        font-size: 18px;
+    }
+    .theMap{
+        height: 84vh;
+        width: 100vw;
+    }
+    #backButtonMap{
+        margin-left: 4vw;
         margin-right: 20vw;
+        outline: none;
     }
 }
-
-
 /* Fin del formato mobile */
-/* Inicio del formato de escritorio (desktop) */
+
+
+/* Inicio del formato de escritorio (DESKTOP) */
 @media screen and (min-width: 415px){
 
-    /* Pagína Login versión desktop*/
+/* Página Login VERSIÓN DESKTOP*/
 .templateLogin {
     background-image: url(img/fondo3.jpg);
     width: 100%;
@@ -991,12 +1017,10 @@ table {
     flex-direction: row;
     background-attachment: fixed;
 }
-
 .logoLogin {
     margin-bottom: 4vh;
     width: 12vw;
 }
-
 .inputsBigContainer {
     display: flex;
     flex-direction: column;
@@ -1074,12 +1098,12 @@ table {
     box-shadow: none;
 }
 
-.alert-login-message{
-height: 1vh;
-font-size: 12.5px;
-color: rgba(240, 49, 49, 0.6);
-margin-top: 1vh;
-font-weight: 800;
+.alert-login-message {
+    height: 1vh;
+    font-size: 12.5px;
+    color: rgba(240, 49, 49, 0.6);
+    margin-top: 1vh;
+    font-weight: 800;
 }
 
 .google-btn {
@@ -1150,8 +1174,7 @@ font-weight: 800;
 .lines {
     width: 130px;
 }
-
-.desktopLogin{
+.desktopLogin {
     background-color: #ffffff;
     height: 100vh;
     width: 45vw;
@@ -1162,8 +1185,7 @@ font-weight: 800;
     box-shadow: 0px 10px 10px #FE6E91;
 }
 
-/* Página Restablecer contraseña versión desktop*/
-
+/* Página Restablecer contraseña VERSIÓN DESKTOP*/
 .templateResetPassword {
     background-image: url(img/fondo3.jpg);
     width: 100%;
@@ -1220,25 +1242,22 @@ font-weight: 800;
     color: black;
     font-weight: bold;
 }
-.alert-message{
+.alert-message {
     height: 1vh;
     font-size: 12.5px;
     color: rgba(240, 49, 49, 0.6);
     font-weight: 800;
     margin-top: -1.7vh;
     margin-left: 1.2vw;
-    }
-
+}
 #resetEmail{
     margin-top: -2vh;
 }
-
 #alertMessage{
     margin-left: -0.1vw;
 }
 
-/* Página Registro versión desktop*/
-
+/* Página de Registro VERSIÓN DESKTOP*/
 .templateRegister {
     background-image: url(img/fondo3.jpg);
     width: 100%;
@@ -1296,9 +1315,13 @@ font-weight: 800;
     margin-right: 5vh;
 }
 
-/* Página de escribir un comentario versión desktop */
+/* Página de escribir un comentario VERSIÓN DESKTOP */
 .templateComment {
     font-family: Roboto;
+    background-color: #F2BAC9;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
 }
 .newComentContainer {
     display: flex;
@@ -1313,11 +1336,12 @@ font-weight: 800;
     box-sizing: border-box;
     border-radius: 5px;
     width: 90%;
-    margin-bottom: 4vh;
-    margin-top: 4vh;
+    margin-bottom: 2.5vh;
+    margin-top: 2.5vh;
     padding-top: 1vh;
-    padding-left: 2vw;
+    padding-left: 1vw;
     outline: none;
+    resize: none;
 }
 .commentButton {
     font-family: Roboto;
@@ -1331,7 +1355,7 @@ font-weight: 800;
     letter-spacing: 0.05em;
 }
 
-/* Página crear perfil versión desktop */
+/* Página de crear perfil VERSIÓN DESKTOP */
 .createProfile {
     background-color: #F2BAC9;
     display: flex;
@@ -1532,8 +1556,7 @@ font-weight: 800;
     margin-top: 2vh;
 }
 
-/* Pagina perfil desktop */
-
+/* Página de ver perfil VERSIÓN DESKTOP */
 .profileContent {
     font-family: Roboto;
     font-style: normal;
@@ -1567,38 +1590,48 @@ font-weight: 800;
     width: 8vw;
 }
 
-/* Página Mapa versión desktop*/
-.mapDiv{
-    margin-top: 5vh;
+/* Página del Mapa VERSIÓN DESKTOP*/
+.desktopMap{
+    background-color: #F2BAC9;
+}
+.headerMap{
+    display: flex;
+    height: 12vh;
+    align-items: center;
+    /* width: 34.89vw; */
+    justify-content: center;
+    box-shadow: 1px 2px 0px #f2bac9;
+}
+/* .mapDiv{
+    margin-top: 2vh;
+} */
+.theMap{
+    height: 87.5vh;
+    width: 100vw;
 }
 .newPostTitle{
     display: flex;
-
 }
-
 #backButton{
     height: 6vh;
-    width: 6vw;
 }
 .mapTitle{
-    margin-right: 5vw;
+    margin-right: 0vw;
+    padding-right: 5vw;
+    padding-left: 5vw;
     font-size: 28px;
-    margin-left: 5vw;
 }
 
-/* Página Nuevo Post desktop */
-
+/* Página de Nuevo Post VERSIÓN DESKTOP */
 .templateNewPost{
     background-color: #F2BAC9;
     display: flex;
     justify-content: center;
     height: 100vh;
 }
-
 .newPostUserInfo{
     margin-bottom: 2vh;
 }
-
 .newPostTitle{
     display: flex;
     height: 12vh;
@@ -1607,24 +1640,20 @@ font-weight: 800;
     box-shadow: 1px 2px 0px #f2bac9;
     font-size: 28px;
 }
-
 .newPostProfileImg {
     width: 3VW;
     height: 5.5vh;
     border-radius: 100%;
     margin-right: 1vw;
 }
-
 .newPostUserInfo{
     display: flex;
     align-items: center;
 }
-
 .newPostDiv{
     width: 70%;
     margin-top: 2vh;
 }
-
 .newPostTextInput{
     width: 100%;
     font-family: Roboto;
@@ -1633,17 +1662,16 @@ font-weight: 800;
     box-sizing: border-box;
     border-radius: 5px;
     width: 100%;
-    margin-bottom: 4vh;
-    margin-top: 4vh;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
     padding-top: 1vh;
     padding-left: 1vw;
     outline: none;
+    resize: none;
 }
-
 .imgNewPost{
     width: 100%;
 }
-
 .selectFile {
     margin-left: 0.5vw;
     cursor: pointer;
@@ -1654,7 +1682,6 @@ font-weight: 800;
     object-fit: cover;
     object-position: center center;
 }
-
 .postButton {
     font-family: Roboto;
     background: #F2BAC9;
@@ -1690,13 +1717,11 @@ font-weight: 800;
     position: absolute;
     left: 520px;
 }
-
 .newPostContent{
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
-
 .newPost {
     font-style: normal;
     font-weight: normal;
@@ -1709,16 +1734,278 @@ font-weight: 800;
     background-color: #B9F2D7;
     cursor: pointer;
 }
+#backButton{
+    margin-right: 4.5vw;
+    height: 6vh;
+    width: 6vw;
+   }
 
-/* Página editar post desktop */
+/* Página editar post VERSIÓN DESKTOP */
 #backBtn{
  margin-right: 4.5vw;
  height: 6vh;
  width: 6vw;
 }
 
+/* Página principal, "el muro" VERSIÓN DESKTOP*/
+/* .templateWall {
+    background-color: #F3F7F9;
+    width: 100%;
+}
+header {
+    background-color: #F2BAC9;
+    left: 0;
+    top: 0;
+    height: 55px;
+}
+.lateralMenu {
+    margin-right: 30%;
+    margin-left: 5%;
+}
+.delete-post {
+    display: flex;
+    margin-left: 10vw;
 }
 
+/* menu desplegable VERSIÓN DESKTOP*/
+/* #check {
+    display: none;
+}
+#check:checked~.menu {
+    width: 300px;
+}
+.menu {
+    position: fixed;
+    top: 50px;
+    width: 0px;
+    height: 100%;
+    background-color: #F2BAC9;
+    transition: all 800ms cubic-bezier(1, 0, 0, 1);
+    transition-timing-function: cubic-bezier(1, 0, 0, 1);
+    overflow: hidden;
+}
+.menuFirstSection {
+    border-bottom: 1px solid #979797;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.userInfoContainer {
+    margin-left: 80px;
+}
+.miniViewProfileImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-left: 20px;
+    position: absolute;
+}
+.wallUserMail {
+    font-size: 12px;
+}
+.menuSecondSection {
+    border-bottom: 1px solid #979797;
+    padding-top: 30px;
+    padding-bottom: 120px;
+}
+.homeUserIconContainer {
+    display: flex;
+    flex-direction: row;
+}
+.homeUserIcon {
+    padding-left: 18px;
+}
+.menuThirdSection {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.homeLogoutIconContainer {
+    display: flex;
+    flex-direction: row;
+}
+.homeLogoutIcon {
+    padding-left: 18px;
+}
+.menu li {
+    list-style: none;
+    padding: 5px;
+    color: black;
+    cursor: pointer;
+    transition: all 300ms;
+    display: block;
+    width: 500px;
+}
+.menuButton {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    top: -35px;
+    padding: 15px;
+    color: white;
+    cursor: pointer;
+}
+.mainTitle {
+    display: flex;
+    justify-content: center;
+    margin-top: -65px;
+} */
+/* ----------------------------------------- */
+
+/* .fixedFooter {
+    padding-top: 1%;
+    height: 8%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #F2BAC9;
+    text-align: center;
+}
+.newPostBtn {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.wallContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    margin-top: 1vh;
+    height: 83.7vh;
+}
+.post {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.postHeader {
+    background-color: #B9F2D7;
+    display: flex;
+    align-items: center;
+    font-family: Roboto;
+    font-size: 1.7vh;
+    color: #000000;
+}
+.imgPost {
+    width: 100%;
+    height: auto;
+} */
+.postProfilePicture {
+    margin-right: 0.5vw;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 100%;
+} /*
+.rowDiv {
+    display: flex;
+    align-items: center;
+}
+.headerUserName {
+    width: 67%;
+}
+.postFooter {
+    padding-left: 4%;
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    background-color: #B9F2D7;
+}
+.postUserName {
+    font-family: Roboto;
+    font-size: 2.0vh;
+    color: rgba(0, 0, 0, 1);
+}
+.postComment {
+    font-family: Roboto;
+    font-size: 1.7vh;
+    color: rgba(0, 0, 0, 0.6);
+}
+.postUserName {
+    font-family: Roboto;
+    font-size: 1.7vh;
+    line-height: 2.5vh;
+    color: #000000;
+    margin-right: 2vw;
+}
+.viewComments {
+    font-family: Roboto;
+    font-size: 1.7vh;
+    line-height: 2.5vh;
+    color: rgba(0, 0, 0, 0.6);
+}
+.footerRowDiv{
+    display: flex;
+    align-items: flex-end;
+}
+.likeDiv {
+    display: flex;
+    width: 8vw;
+    align-items: flex-end;
+}
+.likeHeart {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5vw;
+}
+.likeBtn {
+    margin-right: 4%;
+    width: 17px;
+    height: 17px;
+}
+.countSpan {
+    font-size: 2vh;
+    margin-right: 2vw;
+}
+.commentCountSpan{
+    font-size: 2vh;
+}
+.commentCount{
+font-size: 2vh;
+margin-right: 2vw;
+margin-right: 70%;
+}
+.show-profile-btn{
+    width: 45px;
+} */
+
+/* Template new comment, donde se crean y se visualizan los comentarios VERSIÓN DESKTOP*/
+.mainCommentsBox {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 4vw;
+}
+.commentsListContent{
+    overflow-y: scroll;
+    height: 50vh;
+    margin-top: 1vh;
+    width: 35vw;
+}
+.input-content {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+}
+.input-nameHour{
+    display: Flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.input-time{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .input-message-username{
+   font-weight: 700;
+   margin-top: 2vh;
+  }
+  #theBackButton{
+    margin-right: 5.9vw;
+    height: 6vh;
+    width: 6vw;
+   }
 
 
 
@@ -1740,3 +2027,24 @@ font-weight: 800;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
