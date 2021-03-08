@@ -7,12 +7,12 @@ export const wall = () => {
   const viewWall = `
 
     <!-- Header fijo -->
-    <div class="header" id="contentMenu">
+    <div class="headerWall" id="contentMenu">
     <header></header>
     <input type="checkbox" id="check">
-    <label for="check" class="menuButton"><img src="img/lateralMenu.svg"></label>
+    <label for="check" class="menuButton"><img src="img/lateralMenu.svg" class="lateralMenuImage"></label>
     <div class="mainTitle">
-    <img src="img/logoHeader.png" alt="logo" class="logoHeader">
+    <img src="img/beautylogo.svg" alt="logo" class="logoHeader">
     </div>
 
 <!-- menu desplegable -->
