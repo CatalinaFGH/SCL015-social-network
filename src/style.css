@@ -1989,7 +1989,7 @@ table {
   /* ----------------------------------------- */
   .fixedFooter {
     position: relative;
-    top: -90vh;
+    top: -98vh;
     display: flex;
     flex-direction: row-reverse;
     width: 15vw;
@@ -2164,10 +2164,10 @@ table {
   }
 }
 
-@media screen and (min-width: 1366px) {
+@media screen and (min-width: 1367px) {
   .fixedFooter {
     position: relative;
-    top: -98vh;
+    top: -96vh;
     display: flex;
     flex-direction: row-reverse;
     width: 15vw;
