@@ -1,6 +1,6 @@
 # Social Network: "Beauty Tips"
 
-link a demo: https://raizalr.github.io/SCL015-social-network/src/index.html
+link a demo: https://catalinafgh.github.io/SCL015-social-network/src/
 
 ## Índice
 
